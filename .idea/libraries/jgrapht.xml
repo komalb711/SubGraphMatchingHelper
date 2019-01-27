@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="jgrapht">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib/jgrapht" />
+      <root url="file://$PROJECT_DIR$/lib/neo4j" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/jgrapht" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/neo4j" recursive="false" />
+  </library>
+</component>

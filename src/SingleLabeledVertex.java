@@ -3,14 +3,14 @@ import org.jgrapht.graph.SimpleGraph;
 
 import java.util.Set;
 
-public class CustomVertex {
+public class SingleLabeledVertex implements LabeledVertex {
     private int nodeId;
     private String label;
 
-    public CustomVertex() {
+    public SingleLabeledVertex() {
     }
 
-    public CustomVertex(int id, String lbl) {
+    public SingleLabeledVertex(int id, String lbl) {
         nodeId = id;
         label = lbl;
     }
@@ -33,24 +33,24 @@ public class CustomVertex {
 
     @Override
     public String toString() {
-        return "CustomVertex{" +
+        return "SingleLabeledVertex{" +
                 "nodeId=" + nodeId +
                 ", label='" + label + '\'' +
                 '}';
     }
 
     public static void main(String[] args) {
-        SimpleGraph<CustomVertex, DefaultEdge> g =
+        SimpleGraph<SingleLabeledVertex, DefaultEdge> g =
                 new SimpleGraph<>(DefaultEdge.class);
-        CustomVertex v1 = new CustomVertex(1, "N");
-        CustomVertex v2 = new CustomVertex(2, "R");
+        SingleLabeledVertex v1 = new SingleLabeledVertex(1, "N");
+        SingleLabeledVertex v2 = new SingleLabeledVertex(2, "R");
 
         g.addVertex(v1);
         g.addVertex(v2);
 
         DefaultEdge edge = g.addEdge(v1, v2);
-        Set<CustomVertex> vertices = g.vertexSet();
-        for (CustomVertex vertex : vertices) {
+        Set<SingleLabeledVertex> vertices = g.vertexSet();
+        for (SingleLabeledVertex vertex : vertices) {
             if ("N".equals(vertex.getLabel())) {
                 System.out.println(vertex);
             }

@@ -7,7 +7,10 @@ import org.neo4j.graphdb.*;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 import org.neo4j.graphdb.factory.GraphDatabaseSettings;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -27,7 +30,7 @@ public class VF2 {
     private List<Pair<Integer, Integer>> relationshipMap;
     private Map<String, String> variableLabelMap;
     private Map<Integer, List<Integer>> candidateMap;
-    private Graph<CustomVertex, DefaultEdge> queryGraph;
+    private Graph<SingleLabeledVertex, DefaultEdge> queryGraph;
     private Map<Integer, List<String>> queryProfiles;
 
     private ArrayList<Pair<Integer, Integer>> markedMapping;
@@ -39,7 +42,7 @@ public class VF2 {
     private float gamma;
 
     private static ArrayList<Integer> allDataNodes;
-    private static HashMap<Integer, CustomVertex> allQueryNodes;
+    private static HashMap<Integer, SingleLabeledVertex> allQueryNodes;
 
     private static ArrayList<String> validEmbeddings;
 
@@ -76,46 +79,49 @@ public class VF2 {
 
         validEmbeddings = new ArrayList<>();
 
-        for (String dataFile : dataFiles) {
+        try (Transaction tx = db.beginTx()) {
+            for (String dataFile : dataFiles) {
 //            dataFile = "backbones_1RH4.grf";
-            System.out.println("DATA FILE:" + dataFile);
-            dataGraphLabel = dataFile.split(".grf")[0];
-            neo4jDebugger.setDataGraph(dataGraphLabel);
-            for (String queryFile : queryFiles) {
+                System.out.println("DATA FILE:" + dataFile);
+                dataGraphLabel = dataFile.split(".grf")[0];
+                neo4jDebugger.setDataGraph(dataGraphLabel);
+                for (String queryFile : queryFiles) {
 //                queryFile = "backbones_1EMA.8.sub.grf";
-                if (queryFile.endsWith(".8.sub.grf")) {
-                    System.out.println("QUERY FILE:" + queryFile);
-                    createQueryJGraph(queryFilePath, queryFile);
-                    neo4jDebugger.setDataAndQueryGraphName(queryGraph, db);
-                    findProfileForQueryGraph();
-                    validEmbeddings.clear();
-                    long startTime = System.currentTimeMillis();
+                    if (queryFile.endsWith(".8.sub.grf")) {
+                        System.out.println("QUERY FILE:" + queryFile);
+                        createQueryJGraph(queryFilePath, queryFile);
+                        neo4jDebugger.setDataAndQueryGraphName(queryGraph, db);
+                        findProfileForQueryGraph();
+                        validEmbeddings.clear();
+                        long startTime = System.currentTimeMillis();
 
-                    if (!computeCandidates(dataGraphLabel))
-                        continue;
-                    boolean valid = true;
-                    for (int id : candidateMap.keySet()) {
+                        if (!computeCandidates(dataGraphLabel))
+                            continue;
+                        boolean valid = true;
+                        for (int id : candidateMap.keySet()) {
 
-                        if (!neo4jDebugger.checkCandidateList(candidateMap.get(id), id, CandidateType.Profiles)) {
-                            System.out.println("Invalid Candidates for queryNode:" + id);
-                            valid = false;
+                            if (!neo4jDebugger.checkCandidateList(candidateMap.get(id), id, CandidateType.Profiles)) {
+                                System.out.println("Invalid Candidates for queryNode:" + id);
+                                valid = false;
+                            }
+                            if (!valid) {
+                                break;
+                            }
                         }
                         if (!valid) {
-                            break;
+                            continue;
                         }
+                        searchSpaceReduction();
+                        computeOrder();
+                        startMatch();
+                        checkGroundTruth(validEmbeddings, queryFile, dataFile, groundTruthFilename);
+                        long endTime = System.currentTimeMillis();
+                        System.out.println("Execution Time:" + (endTime - startTime) + "milliseconds\n");
                     }
-                    if (!valid) {
-                        continue;
-                    }
-                    searchSpaceReduction();
-                    computeOrder();
-                    startMatch();
-                    checkGroundTruth(validEmbeddings, queryFile, dataFile, groundTruthFilename);
-                    long endTime = System.currentTimeMillis();
-                    System.out.println("Execution Time:" + (endTime - startTime) + "milliseconds\n");
                 }
+                break;
             }
-            break;
+            tx.success();
         }
         db.shutdown();
     }
@@ -138,7 +144,7 @@ public class VF2 {
             int queryNodeId = nodeOrder.get(nodeCnt);
 
             List<Integer> candidates = Utils.intersection(candidateMap.get(queryNodeId), currentState.getT1());
-            List<CustomVertex> queryNeighbor = Graphs.neighborListOf(queryGraph, allQueryNodes.get(queryNodeId));
+            List<SingleLabeledVertex> queryNeighbor = Graphs.neighborListOf(queryGraph, allQueryNodes.get(queryNodeId));
 
             for (int dataNodeId : candidates) {
                 if (currentState.getM().containsValue(dataNodeId))
@@ -153,9 +159,9 @@ public class VF2 {
         }
     }
 
-    private boolean rule1(StateWithCustomVertex currentState, List<CustomVertex> queryNeighbor, List<Integer> dataNeighbor) {
-        List<CustomVertex> queryNeighboursInMapping = Utils.intersection(queryNeighbor, getVertexListFromNodeList(new ArrayList<>(currentState.getM().keySet())));
-        for (CustomVertex node : queryNeighboursInMapping) {
+    private boolean rule1(StateWithCustomVertex currentState, List<SingleLabeledVertex> queryNeighbor, List<Integer> dataNeighbor) {
+        List<SingleLabeledVertex> queryNeighboursInMapping = Utils.intersection(queryNeighbor, getVertexListFromNodeList(new ArrayList<>(currentState.getM().keySet())));
+        for (SingleLabeledVertex node : queryNeighboursInMapping) {
             if (currentState.getM().containsKey(node.getNodeId())) {
                 int value = currentState.getM().get(node.getNodeId());
                 if (!dataNeighbor.contains(value)) {
@@ -166,18 +172,18 @@ public class VF2 {
         return true;
     }
 
-    private boolean rule2(StateWithCustomVertex state, List<CustomVertex> queryNeighbor, List<Integer> dataNeighbor) {
+    private boolean rule2(StateWithCustomVertex state, List<SingleLabeledVertex> queryNeighbor, List<Integer> dataNeighbor) {
         List<Integer> data = Utils.intersection(dataNeighbor, state.getT1());
-        List<CustomVertex> query = Utils.intersection(queryNeighbor, state.getT2());
+        List<SingleLabeledVertex> query = Utils.intersection(queryNeighbor, state.getT2());
         if (data.size() >= query.size()) {
             return true;
         }
         return false;
     }
 
-    private boolean rule3(StateWithCustomVertex state, List<CustomVertex> queryNeighbor, List<Integer> dataNeighbor) {
+    private boolean rule3(StateWithCustomVertex state, List<SingleLabeledVertex> queryNeighbor, List<Integer> dataNeighbor) {
         List<Integer> data = Utils.intersection(dataNeighbor, state.getN1());
-        List<CustomVertex> query = Utils.intersection(queryNeighbor, state.getN2());
+        List<SingleLabeledVertex> query = Utils.intersection(queryNeighbor, state.getN2());
         if (data.size() >= query.size()) {
             return true;
         }
@@ -194,14 +200,14 @@ public class VF2 {
         temp.removeAll(state.getM().values());
         state.setN1(temp);
 
-        List<CustomVertex> queryNodeNeighbours = new ArrayList<>();
+        List<SingleLabeledVertex> queryNodeNeighbours = new ArrayList<>();
         for (int u : state.getM().keySet()) {
             queryNodeNeighbours.addAll(Graphs.neighborListOf(queryGraph, allQueryNodes.get(u)));
         }
         queryNodeNeighbours.removeAll(getVertexListFromNodeList(new ArrayList<>(state.getM().keySet())));
         state.setT2(queryNodeNeighbours);
 
-        List<CustomVertex> temp1 = state.getN2();
+        List<SingleLabeledVertex> temp1 = state.getN2();
         temp1.removeAll(state.getT2());
         temp1.removeAll(getVertexListFromNodeList(new ArrayList<>(state.getM().keySet())));
         state.setN2(temp1);
@@ -217,31 +223,28 @@ public class VF2 {
 
     private ArrayList<Integer> getNeighboursOfNode(int node) {
         ArrayList<Integer> results = new ArrayList<>();
-        try (Transaction tx = db.beginTx()) {
-            Node n = db.findNode(Label.label(dataGraphLabel), "id", node);
-            for (Relationship rel : n.getRelationships()) {
-                int sId = (Integer) rel.getStartNode().getProperty("id");
-                int eId = (Integer) rel.getEndNode().getProperty("id");
-                if (sId != node)
-                    results.add(sId);
-                else
-                    results.add(eId);
-            }
-            tx.success();
+        Node n = db.findNode(Label.label(dataGraphLabel), "id", node);
+        for (Relationship rel : n.getRelationships()) {
+            int sId = (Integer) rel.getStartNode().getProperty("id");
+            int eId = (Integer) rel.getEndNode().getProperty("id");
+            if (sId != node)
+                results.add(sId);
+            else
+                results.add(eId);
         }
         return results;
     }
 
-    private List<Integer> getNodeListFromVertexList(List<CustomVertex> vertexList) {
+    private List<Integer> getNodeListFromVertexList(List<SingleLabeledVertex> vertexList) {
         List<Integer> nodeList = new ArrayList<>();
-        for (CustomVertex vertex : vertexList) {
+        for (SingleLabeledVertex vertex : vertexList) {
             nodeList.add(vertex.getNodeId());
         }
         return nodeList;
     }
 
-    private List<CustomVertex> getVertexListFromNodeList(List<Integer> nodeList) {
-        List<CustomVertex> vertexList = new ArrayList<>();
+    private List<SingleLabeledVertex> getVertexListFromNodeList(List<Integer> nodeList) {
+        List<SingleLabeledVertex> vertexList = new ArrayList<>();
         for (int nodeId : nodeList) {
             vertexList.add(allQueryNodes.get(nodeId));
         }
@@ -255,7 +258,7 @@ public class VF2 {
     }
 
     private void searchSpaceReduction() {
-        ArrayList<CustomVertex> vertexSetU = new ArrayList<>();
+        ArrayList<SingleLabeledVertex> vertexSetU = new ArrayList<>();
         ArrayList<Integer> vertexSetV = new ArrayList<>();
 
         HashMap<Integer, ArrayList<Integer>> bipartite_graph_edges = new HashMap<>();
@@ -276,7 +279,7 @@ public class VF2 {
             vertexSetU.clear();
             vertexSetV.clear();
             check = false;
-            List<CustomVertex> queryNeighbors = Graphs.neighborListOf(queryGraph, allQueryNodes.get(u));
+            List<SingleLabeledVertex> queryNeighbors = Graphs.neighborListOf(queryGraph, allQueryNodes.get(u));
             List<Integer> dataNeighbors = getNeighboursOfNode(v);
             vertexSetU.addAll(queryNeighbors);
             vertexSetV.addAll(dataNeighbors);
@@ -286,7 +289,7 @@ public class VF2 {
                 continue;
             }
 
-            for (CustomVertex u_dash : queryNeighbors) {
+            for (SingleLabeledVertex u_dash : queryNeighbors) {
                 List<Integer> validEndpoints = Utils.intersection(dataNeighbors, candidateMap.get(u_dash.getNodeId()));
                 if (validEndpoints.size() == 0) {
                     check = true;
@@ -354,9 +357,9 @@ public class VF2 {
     }
 
     private void markNodes(int u, int v) {
-        List<CustomVertex> queryNeighbors = Graphs.neighborListOf(queryGraph, allQueryNodes.get(u));
+        List<SingleLabeledVertex> queryNeighbors = Graphs.neighborListOf(queryGraph, allQueryNodes.get(u));
         List<Integer> dataNeighbors = getNeighboursOfNode(v);
-        for (CustomVertex u_node : queryNeighbors) {
+        for (SingleLabeledVertex u_node : queryNeighbors) {
             List<Integer> validEndpoints = Utils.intersection(dataNeighbors, candidateMap.get(u_node.getNodeId()));
             for (int endpoint : validEndpoints) {
                 markedMapping.add(new Pair<>(u_node.getNodeId(), endpoint));
@@ -383,17 +386,17 @@ public class VF2 {
         double previousCost = 1;
 
         while (nodeOrder.size() < variableLabelMap.size()) {
-            ArrayList<CustomVertex> neighborList = new ArrayList<>();
+            ArrayList<SingleLabeledVertex> neighborList = new ArrayList<>();
             for (int u : nodeOrder) {
                 neighborList.addAll(Graphs.neighborListOf(queryGraph, allQueryNodes.get(u)));
             }
             neighborList.removeAll(getVertexListFromNodeList(nodeOrder));
             double minCost = 1000000;
             int minCostNode = -1;
-            for (CustomVertex neighbor : neighborList) {
-                List<CustomVertex> temp = Graphs.neighborListOf(queryGraph, neighbor);
+            for (SingleLabeledVertex neighbor : neighborList) {
+                List<SingleLabeledVertex> temp = Graphs.neighborListOf(queryGraph, neighbor);
                 int gammaPower = 0;
-                for (CustomVertex t : temp) {
+                for (SingleLabeledVertex t : temp) {
                     if (nodeOrder.contains(t.getNodeId())) {
                         gammaPower++;
                     }
@@ -416,24 +419,22 @@ public class VF2 {
         int nodeCount = 0;
         int edgeCount = 0;
 
-        try (Transaction tx = db.beginTx()) {
-            for (String key : variableLabelMap.keySet()) {
-                String lbl = variableLabelMap.get(key);
-                ArrayList<Integer> candidates = new ArrayList<>();
-                ResourceIterator<Node> res = db.findNodes(Label.label(label));
-                while (res.hasNext()) {
-                    Node node = res.next();
-                    allDataNodes.add((Integer) node.getProperty("id"));
-                    edgeCount += (Integer) node.getProperty("edge_count");
-                    nodeCount++;
-                    if (node.hasLabel(Label.label(lbl)) && matchProfiles(node, key)) {
-                        candidates.add((Integer) node.getProperty("id"));
-                    }
+        for (String key : variableLabelMap.keySet()) {
+            String lbl = variableLabelMap.get(key);
+            ArrayList<Integer> candidates = new ArrayList<>();
+            ResourceIterator<Node> res = db.findNodes(Label.label(label));
+            while (res.hasNext()) {
+                Node node = res.next();
+                allDataNodes.add((Integer) node.getProperty("id"));
+                edgeCount += (Integer) node.getProperty("edge_count");
+                nodeCount++;
+                if (node.hasLabel(Label.label(lbl)) && matchProfiles(node, key)) {
+                    candidates.add((Integer) node.getProperty("id"));
                 }
-                candidateMap.put(Integer.parseInt(key), candidates);
             }
-            tx.success();
+            candidateMap.put(Integer.parseInt(key), candidates);
         }
+
 
         edgeCount = edgeCount / 2;
         gamma = ((float) edgeCount * 2) / ((float) nodeCount * (nodeCount - 1));
@@ -465,10 +466,10 @@ public class VF2 {
 
     private void findProfileForQueryGraph() {
         queryProfiles = new HashMap<>();
-        for (CustomVertex node : queryGraph.vertexSet()) {
+        for (SingleLabeledVertex node : queryGraph.vertexSet()) {
             ArrayList<String> profiles = new ArrayList<>();
             profiles.add(node.getLabel());
-            for (CustomVertex neighbor : Graphs.neighborListOf(queryGraph, node)) {
+            for (SingleLabeledVertex neighbor : Graphs.neighborListOf(queryGraph, node)) {
                 profiles.add(neighbor.getLabel());
             }
             Collections.sort(profiles);
@@ -485,7 +486,7 @@ public class VF2 {
         allQueryNodes = new HashMap<>();
 
         for (String key : variableLabelMap.keySet()) {
-            CustomVertex vertex = new CustomVertex(Integer.parseInt(key), variableLabelMap.get(key));
+            SingleLabeledVertex vertex = new SingleLabeledVertex(Integer.parseInt(key), variableLabelMap.get(key));
             queryGraph.addVertex(vertex);
             allQueryNodes.put(Integer.parseInt(key), vertex);
         }

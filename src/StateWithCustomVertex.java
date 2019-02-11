@@ -6,9 +6,9 @@ public class StateWithCustomVertex {
 
     private HashMap<Integer, Integer> M;
     private List<Integer> T1;
-    private List<SingleLabeledVertex> T2;
+    private List<LabeledVertex> T2;
     private List<Integer> N1;
-    private List<SingleLabeledVertex> N2;
+    private List<LabeledVertex> N2;
 
     public StateWithCustomVertex(){
         M = new HashMap<>();
@@ -40,7 +40,7 @@ public class StateWithCustomVertex {
         return T1;
     }
 
-    public List<SingleLabeledVertex> getT2() {
+    public List<LabeledVertex> getT2() {
         return T2;
     }
 
@@ -48,7 +48,7 @@ public class StateWithCustomVertex {
         return N1;
     }
 
-    public List<SingleLabeledVertex> getN2() {
+    public List<LabeledVertex> getN2() {
         return N2;
     }
 
@@ -64,7 +64,7 @@ public class StateWithCustomVertex {
         T1 = t1;
     }
 
-    public void setT2(List<SingleLabeledVertex> t2) {
+    public void setT2(List<LabeledVertex> t2) {
         T2 = t2;
     }
 
@@ -72,7 +72,7 @@ public class StateWithCustomVertex {
         N1 = n1;
     }
 
-    public void setN2(List<SingleLabeledVertex> n2) {
+    public void setN2(List<LabeledVertex> n2) {
         N2 = n2;
     }
 
@@ -86,7 +86,7 @@ public class StateWithCustomVertex {
             System.out.print(node + " ");
         }
         System.out.println("T2:");
-        for( SingleLabeledVertex node: T2 ){
+        for( LabeledVertex node: T2 ){
             System.out.print(node.getNodeId() + " ");
         }
 
@@ -95,7 +95,7 @@ public class StateWithCustomVertex {
             System.out.print(node + " ");
         }
         System.out.println("N2:");
-        for( SingleLabeledVertex node: N2 ){
+        for( LabeledVertex node: N2 ){
             System.out.print(node.getNodeId() + " ");
         }
     }

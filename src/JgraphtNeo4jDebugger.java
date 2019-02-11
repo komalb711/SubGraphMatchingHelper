@@ -13,8 +13,8 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
     private static String EDGES_COUNT = "edge_count";
     private static String NODE_ID = "id";
     private String dataGraphName = "backbones_1RH4.grf";
-    private Graph<SingleLabeledVertex, DefaultEdge> queryGraph;
-    private HashMap<Integer, SingleLabeledVertex> queryVertexMap;
+    private Graph<LabeledVertex, DefaultEdge> queryGraph;
+    private HashMap<Integer, LabeledVertex> queryVertexMap;
 
     private GraphDatabaseService db;
 
@@ -22,12 +22,12 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
         this.dataGraphName = dataGraph;
     }
 
-    public void setDataAndQueryGraphName(Graph<SingleLabeledVertex, DefaultEdge> queryGraph, GraphDatabaseService service) {
+    public void setDataAndQueryGraphName(Graph<LabeledVertex, DefaultEdge> queryGraph, GraphDatabaseService service) {
         this.queryGraph = queryGraph;
         this.db = service;
         this.queryVertexMap = new HashMap<>();
-        Set<SingleLabeledVertex> vertices = queryGraph.vertexSet();
-        for (SingleLabeledVertex vertex : vertices) {
+        Set<LabeledVertex> vertices = queryGraph.vertexSet();
+        for (LabeledVertex vertex : vertices) {
             queryVertexMap.put(vertex.getNodeId(), vertex);
         }
     }
@@ -37,13 +37,13 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
         List<Integer> inputCandidateList = new ArrayList<>(candidateList);
         List<Integer> ourCandidateList = new ArrayList<>();
 
-        SingleLabeledVertex queryVertex = queryGraph.vertexSet().stream().filter(v -> v.getNodeId() == queryNodeId).findAny().get();
-        List<SingleLabeledVertex> neighbors = Graphs.neighborListOf(queryGraph, queryVertex);
+        LabeledVertex queryVertex = queryGraph.vertexSet().stream().filter(v -> v.getNodeId() == queryNodeId).findAny().get();
+        List<LabeledVertex> neighbors = Graphs.neighborListOf(queryGraph, queryVertex);
         int minEdgeCount = Graphs.neighborListOf(queryGraph, queryVertexMap.get(queryNodeId)).size();
 
         ArrayList<String> queryProfile = new ArrayList<>();
         queryProfile.add(queryVertexMap.get(queryNodeId).getLabel());
-        for (SingleLabeledVertex vertex : neighbors) {
+        for (LabeledVertex vertex : neighbors) {
             queryProfile.add(vertex.getLabel());
         }
         Collections.sort(queryProfile);

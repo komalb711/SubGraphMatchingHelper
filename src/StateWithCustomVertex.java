@@ -2,15 +2,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class State {
+public class StateWithCustomVertex {
 
     private HashMap<Integer, Integer> M;
     private List<Integer> T1;
-    private List<Integer> T2;
+    private List<LabeledVertex> T2;
     private List<Integer> N1;
-    private List<Integer> N2;
+    private List<LabeledVertex> N2;
 
-    public State(){
+    public StateWithCustomVertex(){
         M = new HashMap<>();
         T1 = new ArrayList<>();
         T2 = new ArrayList<>();
@@ -18,16 +18,15 @@ public class State {
         N2 = new ArrayList<>();
     }
 
-    public State createDeepCopy(){
-        State copy = new State();
-        copy.setM(new HashMap<Integer, Integer>(getM()));
-        copy.setT1(new ArrayList<Integer>(getT1()));
-        copy.setT2(new ArrayList<Integer>(getT2()));
-        copy.setN1(new ArrayList<Integer>(getN1()));
-        copy.setN2(new ArrayList<Integer>(getN2()));
+    public StateWithCustomVertex createDeepCopy(){
+        StateWithCustomVertex copy = new StateWithCustomVertex();
+        copy.setM(new HashMap<>(getM()));
+        copy.setT1(new ArrayList<>(getT1()));
+        copy.setT2(new ArrayList<>(getT2()));
+        copy.setN1(new ArrayList<>(getN1()));
+        copy.setN2(new ArrayList<>(getN2()));
         return copy;
     }
-
 
     public HashMap<Integer, Integer> getM() {
         return M;
@@ -41,7 +40,7 @@ public class State {
         return T1;
     }
 
-    public List<Integer> getT2() {
+    public List<LabeledVertex> getT2() {
         return T2;
     }
 
@@ -49,13 +48,14 @@ public class State {
         return N1;
     }
 
-    public List<Integer> getN2() {
+    public List<LabeledVertex> getN2() {
         return N2;
     }
 
     public void addMapping(int u, int v){
         M.put(u, v);
     }
+
     public void removeMapping(int u){
         M.remove(u);
     }
@@ -64,7 +64,7 @@ public class State {
         T1 = t1;
     }
 
-    public void setT2(List<Integer> t2) {
+    public void setT2(List<LabeledVertex> t2) {
         T2 = t2;
     }
 
@@ -72,7 +72,7 @@ public class State {
         N1 = n1;
     }
 
-    public void setN2(List<Integer> n2) {
+    public void setN2(List<LabeledVertex> n2) {
         N2 = n2;
     }
 
@@ -86,8 +86,8 @@ public class State {
             System.out.print(node + " ");
         }
         System.out.println("T2:");
-        for( int node: T2 ){
-            System.out.print(node + " ");
+        for( LabeledVertex node: T2 ){
+            System.out.print(node.getNodeId() + " ");
         }
 
         System.out.println("N1:");
@@ -95,10 +95,9 @@ public class State {
             System.out.print(node + " ");
         }
         System.out.println("N2:");
-        for( int node: N2 ){
-            System.out.print(node + " ");
+        for( LabeledVertex node: N2 ){
+            System.out.print(node.getNodeId() + " ");
         }
     }
-
 
 }

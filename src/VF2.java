@@ -35,16 +35,16 @@ public class VF2 {
 
     private ArrayList<Pair<Integer, Integer>> markedMapping;
 
-    private static ArrayList<Integer> nodeOrder;
+    private static List<Integer> nodeOrder;
 
     private String dataGraphLabel = "backbones_1RH4";
 
     private float gamma;
 
-    private static ArrayList<Integer> allDataNodes;
+    private static List<Integer> allDataNodes;
     private static HashMap<Integer, LabeledVertex> allQueryNodes;
 
-    private static ArrayList<String> validEmbeddings;
+    private static List<String> validEmbeddings;
 
     private JgraphtNeo4jDebugger neo4jDebugger;
 
@@ -81,42 +81,34 @@ public class VF2 {
 
         try (Transaction tx = db.beginTx()) {
             for (String dataFile : dataFiles) {
-            dataFile = "backbones_1RH4.grf";
+                dataFile = "backbones_1RH4.grf";
                 System.out.println("DATA FILE:" + dataFile);
                 dataGraphLabel = dataFile.split(".grf")[0];
-                neo4jDebugger.setDataGraph(dataGraphLabel);
                 for (String queryFile : queryFiles) {
-                queryFile = "backbones_1EMA.8.sub.grf";
+//                queryFile = "backbones_1EMA.8.sub.grf";
                     if (queryFile.endsWith(".8.sub.grf")) {
                         System.out.println("QUERY FILE:" + queryFile);
                         createQueryJGraph(queryFilePath, queryFile);
-                        neo4jDebugger.setDataAndQueryGraphName(queryGraph, db);
+                        neo4jDebugger.setDataAndQueryGraphName(queryGraph, dataGraphLabel, queryFile, db);
                         findProfileForQueryGraph();
                         validEmbeddings.clear();
                         long startTime = System.currentTimeMillis();
 
                         if (!computeCandidates(dataGraphLabel))
                             continue;
-                        boolean valid = true;
-                        for (int id : candidateMap.keySet()) {
-
-                            if (!neo4jDebugger.checkCandidateList(candidateMap.get(id), id, CandidateType.Profiles)) {
-                                System.out.println("Invalid Candidates for queryNode:" + id);
-                                valid = false;
-                            }
-                            if (!valid) {
-                                break;
-                            }
-                        }
-                        if (!valid) {
-                            continue;
-                        }
+                        neo4jDebugger.checkCandidates(candidateMap, CandidateType.Profiles);
                         searchSpaceReduction();
                         computeOrder();
+                        nodeOrder.clear();
+                        nodeOrder.addAll(candidateMap.keySet());
+                        nodeOrder.remove(0);
+
+                        neo4jDebugger.checkSearchOrder(nodeOrder, true);
                         startMatch();
                         checkGroundTruth(validEmbeddings, queryFile, dataFile, groundTruthFilename);
                         long endTime = System.currentTimeMillis();
                         System.out.println("Execution Time:" + (endTime - startTime) + "milliseconds\n");
+                        neo4jDebugger.finishReportWriting();
                     }
                 }
                 break;
@@ -195,7 +187,7 @@ public class VF2 {
         neighbours.removeAll(state.getM().values());
         state.setT1(neighbours);
 
-        ArrayList<Integer> temp = allDataNodes;
+        List<Integer> temp = allDataNodes;
         temp.removeAll(state.getT1());
         temp.removeAll(state.getM().values());
         state.setN1(temp);
@@ -258,10 +250,10 @@ public class VF2 {
     }
 
     private void searchSpaceReduction() {
-        ArrayList<LabeledVertex> vertexSetU = new ArrayList<>();
-        ArrayList<Integer> vertexSetV = new ArrayList<>();
+        List<LabeledVertex> vertexSetU = new ArrayList<>();
+        List<Integer> vertexSetV = new ArrayList<>();
 
-        HashMap<Integer, ArrayList<Integer>> bipartite_graph_edges = new HashMap<>();
+        HashMap<Integer, List<Integer>> bipartite_graph_edges = new HashMap<>();
         markedMapping = new ArrayList<>();
         boolean check;
 
@@ -314,11 +306,11 @@ public class VF2 {
     }
 
 
-    private boolean checkSemiPerfectMatching(HashMap<Integer, ArrayList<Integer>> bipartite_graph_edges) {
+    private boolean checkSemiPerfectMatching(HashMap<Integer, List<Integer>> bipartite_graph_edges) {
         HashMap<Integer, Integer> mapping = new HashMap<>();
 
         for (int u : bipartite_graph_edges.keySet()) {
-            ArrayList<Integer> neighbours = bipartite_graph_edges.get(u);
+            List<Integer> neighbours = bipartite_graph_edges.get(u);
             for (int v : neighbours) {
                 if (!mapping.containsKey(u) && !mapping.containsValue(v)) {
                     mapping.put(u, v);
@@ -335,13 +327,13 @@ public class VF2 {
         return false;
     }
 
-    private boolean findSemiPerfectMatching(HashMap<Integer, ArrayList<Integer>> bipartite_graph_edges, HashMap<Integer, Integer> mapping) {
+    private boolean findSemiPerfectMatching(HashMap<Integer, List<Integer>> bipartite_graph_edges, HashMap<Integer, Integer> mapping) {
         if (mapping.size() == bipartite_graph_edges.keySet().size()) {
             return true;
         }
         for (int u : bipartite_graph_edges.keySet()) {
             if (!mapping.containsKey(u)) {
-                ArrayList<Integer> neighbors = bipartite_graph_edges.get(u);
+                List<Integer> neighbors = bipartite_graph_edges.get(u);
                 for (int v : neighbors) {
                     if (!mapping.containsValue(v)) {
                         mapping.put(u, v);
@@ -479,7 +471,7 @@ public class VF2 {
 
 
     private void createQueryJGraph(String filePath, String filename) {
-        ArrayList<String> content = readFile(filePath + "/" + filename);
+        List<String> content = readFile(filePath + "/" + filename);
         parseFileContent(content);
         queryGraph = new SimpleGraph<>(DefaultEdge.class);
 
@@ -498,7 +490,7 @@ public class VF2 {
     }
 
 
-    private void parseFileContent(ArrayList<String> content) {
+    private void parseFileContent(List<String> content) {
         relationshipMap = new ArrayList<>();
         variableLabelMap = new HashMap<>();
         content.remove(0);
@@ -533,7 +525,7 @@ public class VF2 {
         }
     }
 
-    private void checkGroundTruth(ArrayList<String> results, String queryFilename, String dataFilename, String groundTruthFilename) {
+    private void checkGroundTruth(List<String> results, String queryFilename, String dataFilename, String groundTruthFilename) {
         try {
             BufferedReader reader;
             reader = new BufferedReader(new FileReader(groundTruthFilename));

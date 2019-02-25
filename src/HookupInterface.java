@@ -1,7 +1,9 @@
 import java.util.List;
+import java.util.Map;
 
 public interface HookupInterface {
 
-    public boolean checkCandidateList(List<Integer> candidateList, int queryNodeId, CandidateType checkType);
+    public void checkCandidates(Map<Integer, List<Integer>> candidates, CandidateType checkType);
 
+    public boolean checkSearchOrder(List<Integer> order, boolean showWarning);
 }

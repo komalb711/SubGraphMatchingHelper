@@ -1,54 +1,52 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class StateWithCustomVertex {
 
-    private HashMap<Integer, Integer> M;
-    private List<Integer> T1;
-    private List<LabeledVertex> T2;
-    private List<Integer> N1;
-    private List<LabeledVertex> N2;
+    private Map<Integer, Integer> M;
+    private Set<Integer> T1;
+    private Set<LabeledVertex> T2;
+    private Set<Integer> N1;
+    private Set<LabeledVertex> N2;
 
     public StateWithCustomVertex(){
-        M = new HashMap<>();
-        T1 = new ArrayList<>();
-        T2 = new ArrayList<>();
-        N1 = new ArrayList<>();
-        N2 = new ArrayList<>();
+        M = new TreeMap<>();
+        T1 = new HashSet<>();
+        T2 = new HashSet<>();
+        N1 = new HashSet<>();
+        N2 = new HashSet<>();
     }
 
     public StateWithCustomVertex createDeepCopy(){
         StateWithCustomVertex copy = new StateWithCustomVertex();
-        copy.setM(new HashMap<>(getM()));
-        copy.setT1(new ArrayList<>(getT1()));
-        copy.setT2(new ArrayList<>(getT2()));
-        copy.setN1(new ArrayList<>(getN1()));
-        copy.setN2(new ArrayList<>(getN2()));
+        copy.setM(new TreeMap<>(getM()));
+        copy.setT1(new HashSet<>(getT1()));
+        copy.setT2(new HashSet<>(getT2()));
+        copy.setN1(new HashSet<>(getN1()));
+        copy.setN2(new HashSet<>(getN2()));
         return copy;
     }
 
-    public HashMap<Integer, Integer> getM() {
+    public Map<Integer, Integer> getM() {
         return M;
     }
 
-    public void setM(HashMap<Integer, Integer> m) {
+    public void setM(Map<Integer, Integer> m) {
         M = m;
     }
 
-    public List<Integer> getT1() {
+    public Set<Integer> getT1() {
         return T1;
     }
 
-    public List<LabeledVertex> getT2() {
+    public Set<LabeledVertex> getT2() {
         return T2;
     }
 
-    public List<Integer> getN1() {
+    public Set<Integer> getN1() {
         return N1;
     }
 
-    public List<LabeledVertex> getN2() {
+    public Set<LabeledVertex> getN2() {
         return N2;
     }
 
@@ -60,19 +58,19 @@ public class StateWithCustomVertex {
         M.remove(u);
     }
 
-    public void setT1(List<Integer> t1) {
+    public void setT1(Set<Integer> t1) {
         T1 = t1;
     }
 
-    public void setT2(List<LabeledVertex> t2) {
+    public void setT2(Set<LabeledVertex> t2) {
         T2 = t2;
     }
 
-    public void setN1(List<Integer> n1) {
+    public void setN1(Set<Integer> n1) {
         N1 = n1;
     }
 
-    public void setN2(List<LabeledVertex> n2) {
+    public void setN2(Set<LabeledVertex> n2) {
         N2 = n2;
     }
 

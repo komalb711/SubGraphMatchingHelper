@@ -103,25 +103,22 @@ public class VF2_forSampleData_Induced {
 
                         // compute candidates
                         if(!computeCandidates(dataGraphLabel)){continue;}
-//                        candidateMap.get(0).add(1);
 
                         // call assistant to check our candidates
                         neo4jDebugger.checkCandidates(candidateMap, CandidateType.Basic);
 
                         // compute processing order
                         computeOrder();
-//                        nodeOrder.addAll(candidateMap.keySet());
-//                        nodeOrder.remove(0);
 
                         // call assistant to check our query order
                         neo4jDebugger.checkQueryOrder(nodeOrder, false);
 
                         // start recursive search procedure
                         searchProcHelper();
-                        System.out.println("Results:" + queryFile + " " + dataFile);
-                        System.out.println(validEmbeddings);
+
+                        neo4jDebugger.writeResults(validEmbeddings);
+
                         // check the embeddings with ground truth
-//                        checkGroundTruth(validEmbeddings, queryFile, dataFile, groundTruthFilename);
                         checkResults(validEmbeddings, groundTruth);
 
                         long endTime = System.currentTimeMillis();
@@ -169,7 +166,7 @@ public class VF2_forSampleData_Induced {
                     continue;
                 Set<Integer> dataNodeNeighbours = getNeighboursOfNode(dataNodeId);
                 boolean isJoinable = rule1(currentState, queryNeighbor, dataNodeNeighbours) && rule2(currentState, queryNeighbor, dataNodeNeighbours) && rule3(currentState, queryNeighbor, dataNodeNeighbours);
-                neo4jDebugger.checkPartialEmbedding(currentState.getM(), queryNodeId, dataNodeId, EmbeddingCheckType.WithGroundTruth, isJoinable);
+                neo4jDebugger.checkPartialEmbedding(currentState.getM(), queryNodeId, dataNodeId, EmbeddingCheckType.WithGraph, isJoinable);
                 if (isJoinable) {
                     StateWithCustomVertex copy = currentState.createDeepCopy();
                     copy.addMapping(queryNodeId, dataNodeId);
@@ -182,17 +179,6 @@ public class VF2_forSampleData_Induced {
     }
 
     private boolean rule1(StateWithCustomVertex currentState, Set<LabeledVertex> queryNeighbor, Set<Integer> dataNeighbor) {
-//        Set<LabeledVertex> queryNeighboursInMapping = Utils.intersection(queryNeighbor, getVertexListFromNodeList((currentState.getM().keySet())));
-//        for (LabeledVertex node : queryNeighboursInMapping) {
-//            if (currentState.getM().containsKey(node.getNodeId())) {
-//                int value = currentState.getM().get(node.getNodeId());
-//                if (!dataNeighbor.contains(value)) {
-//                    return false;
-//                }
-//            }
-//        }
-//        return true;
-
         Set<Integer> dataNeighboursInMapping = Utils.intersection(dataNeighbor, new HashSet<>(currentState.getM().values()));
         Set<LabeledVertex> queryNeighboursInMapping = Utils.intersection(queryNeighbor, getVertexListFromNodeList(currentState.getM().keySet()));
 
@@ -307,119 +293,8 @@ public class VF2_forSampleData_Induced {
         }
     }
 
-    private void searchSpaceReduction() {
-        List<LabeledVertex> vertexSetU = new ArrayList<>();
-        List<Integer> vertexSetV = new ArrayList<>();
-
-        HashMap<Integer, List<Integer>> bipartite_graph_edges = new HashMap<>();
-        markedMapping = new ArrayList<>();
-        boolean check;
-
-        for (int u : candidateMap.keySet()) {
-            for (int v : candidateMap.get(u)) {
-                markedMapping.add(new Pair<>(u, v));
-            }
-        }
-
-        while (!markedMapping.isEmpty()) {
-            Pair<Integer, Integer> pair = markedMapping.remove(0);
-            int u = pair.getKey();
-            int v = pair.getValue();
-            bipartite_graph_edges.clear();
-            vertexSetU.clear();
-            vertexSetV.clear();
-            check = false;
-            List<LabeledVertex> queryNeighbors = Graphs.neighborListOf(queryGraph, allQueryNodes.get(u));
-            Set<Integer> dataNeighbors = getNeighboursOfNode(v);
-            vertexSetU.addAll(queryNeighbors);
-            vertexSetV.addAll(dataNeighbors);
-
-            if (vertexSetU.size() > vertexSetV.size()) {
-                (candidateMap.get(u)).remove((Object) v);
-                continue;
-            }
-
-            for (LabeledVertex u_dash : queryNeighbors) {
-                Set<Integer> validEndpoints = Utils.intersection(dataNeighbors, candidateMap.get(u_dash.getNodeId()));
-                if (validEndpoints.size() == 0) {
-                    check = true;
-                    break;
-                }
-                for (int endpoint : validEndpoints) {
-                    if (!bipartite_graph_edges.containsKey(u_dash.getNodeId())) {
-                        bipartite_graph_edges.put(u_dash.getNodeId(), new ArrayList<>());
-                    }
-                    bipartite_graph_edges.get(u_dash.getNodeId()).add(endpoint);
-                }
-            }
-            if (check) {
-                (candidateMap.get(u)).remove((Object) v);
-                continue;
-            }
-            if (!checkSemiPerfectMatching(bipartite_graph_edges)) {
-                (candidateMap.get(u)).remove((Object) v);
-                markNodes(u, v);
-            }
-        }
-    }
-
-
-    private boolean checkSemiPerfectMatching(HashMap<Integer, List<Integer>> bipartite_graph_edges) {
-        HashMap<Integer, Integer> mapping = new HashMap<>();
-
-        for (int u : bipartite_graph_edges.keySet()) {
-            List<Integer> neighbours = bipartite_graph_edges.get(u);
-            for (int v : neighbours) {
-                if (!mapping.containsKey(u) && !mapping.containsValue(v)) {
-                    mapping.put(u, v);
-                    if (findSemiPerfectMatching(bipartite_graph_edges, mapping)) {
-                        return true;
-                    }
-                }
-            }
-            if (mapping.size() == bipartite_graph_edges.keySet().size()) {
-                return true;
-            }
-
-        }
-        return false;
-    }
-
-    private boolean findSemiPerfectMatching(HashMap<Integer, List<Integer>> bipartite_graph_edges, HashMap<Integer, Integer> mapping) {
-        if (mapping.size() == bipartite_graph_edges.keySet().size()) {
-            return true;
-        }
-        for (int u : bipartite_graph_edges.keySet()) {
-            if (!mapping.containsKey(u)) {
-                List<Integer> neighbors = bipartite_graph_edges.get(u);
-                for (int v : neighbors) {
-                    if (!mapping.containsValue(v)) {
-                        mapping.put(u, v);
-                        findSemiPerfectMatching(bipartite_graph_edges, mapping);
-                        if (mapping.size() == bipartite_graph_edges.keySet().size()) {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    private void markNodes(int u, int v) {
-        List<LabeledVertex> queryNeighbors = Graphs.neighborListOf(queryGraph, allQueryNodes.get(u));
-        Set<Integer> dataNeighbors = getNeighboursOfNode(v);
-        for (LabeledVertex u_node : queryNeighbors) {
-            Set<Integer> validEndpoints = Utils.intersection(dataNeighbors, candidateMap.get(u_node.getNodeId()));
-            for (int endpoint : validEndpoints) {
-                markedMapping.add(new Pair<>(u_node.getNodeId(), endpoint));
-            }
-        }
-    }
-
 
     private void computeOrder() {
-//        nodeOrder = new ArrayList<>();
 
         int minValue = Integer.MAX_VALUE;
         int minIdx = -1;

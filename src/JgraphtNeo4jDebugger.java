@@ -30,7 +30,6 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
     public void setGroundTruth(Set<Map<Integer, Integer>> groundTruth, SubgraphMatchingType type) {
         this.groundTruth = new HashSet<>(groundTruth);
         this.type = type;
-//        System.out.println(this.groundTruth);
     }
 
     @Override
@@ -82,6 +81,29 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
             if (inputCandidateList.size() != 0) {
                 this.report.candidateIssues(queryId, inputCandidateList);
             }
+        }
+        if(this.groundTruth!=null && !groundTruth.isEmpty()){
+            this.candidatesWithGroundTruth(candidates);
+        }
+    }
+
+    public void candidatesWithGroundTruth(Map<Integer, Set<Integer>> candidates){
+
+        Map<Integer, Set<Integer>> missingCandidates = new HashMap<>();
+
+        for(Map<Integer, Integer> embedding: groundTruth){
+            for(int candidateKey: embedding.keySet()){
+                if(!candidates.get(candidateKey).contains(embedding.get(candidateKey))){
+                    if(!missingCandidates.containsKey(candidateKey)){
+                        missingCandidates.put(candidateKey, new HashSet<>());
+                    }
+                    missingCandidates.get(candidateKey).add(embedding.get(candidateKey));
+                }
+            }
+        }
+
+        if(!missingCandidates.isEmpty()){
+            this.report.writeMissingCandidates(missingCandidates);
         }
     }
 
@@ -140,8 +162,6 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
     public void checkNextVertex(List<Integer> order, int u) {
         int index = this.currentEmbedding.size();
         if(u != order.get(index)){
-            System.out.println("Issue in next vertex. Should be "+order.get(index) + " got " + u );
-            //write error to report
             report.writeNextVertexError(order.get(index), u);
         }
     }
@@ -158,7 +178,6 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
                         nonInduced = nonInducedGraphMatch(mapping, u, v);
                 }
                 if((induced && nonInduced) != isJoinable){
-//                    System.out.println(mapping + " Query(Induced):"+ u + " " + v + "isJoinable:" + isJoinable + "shouldJoin:" + induced + " " + nonInduced);
                     report.writePartialEmbeddingError(mapping, u, v, isJoinable, (induced && nonInduced), this.type);
                 }
                 break;
@@ -173,10 +192,8 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
 
         mapping.put(u, v);
         boolean shouldJoin = true;
-        String failingQuery = "";
         for (Integer queryNodeId : mapping.keySet()) {
             LabeledVertex queryVertex = queryGraph.vertexSet().stream().filter(q -> q.getNodeId() == queryNodeId).findAny().get();
-//            List<LabeledVertex> neighbors = Graphs.neighborListOf(queryGraph, queryVertex);
             List<LabeledVertex> neighbors = new ArrayList<>(queryGraph.vertexSet());
             neighbors.removeAll(Graphs.neighborListOf(queryGraph, queryVertex));
             neighbors.remove(queryVertex);
@@ -188,9 +205,7 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
                     Result res = dbService.execute(query);
                     long result = (Long) res.next().get("RES");
 
-//                    System.out.println("Query,I:"+ query + ", res:"+result + ", joinable:"+isJoinable);
                     if (result == 1) {
-                        failingQuery = query;
                         shouldJoin = false;
                         break;
                     }
@@ -202,15 +217,8 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
         }
         mapping.remove(u);
         if(!shouldJoin){
-//            System.out.println(mapping + " Query(Induced):"+ failingQuery + ", res:"+shouldJoin);
             return false;
         }
-//        if (shouldJoin != isJoinable) {
-//            System.out.println(mapping + " Query(Induced):"+ failingQuery + ", res:"+shouldJoin + ", joinable:"+isJoinable);
-//            report.writePartialEmbeddingError(mapping, u, v, isJoinable, shouldJoin, SubgraphMatchingType.Induced);
-//            return false;
-//        }
-
 
         return true;
     }
@@ -232,12 +240,8 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
                     Result res = dbService.execute(query);
                     long result = (Long) res.next().get("RES");
 
-//                    System.out.println("Query:"+ query + ", res:"+result + ", joinable:"+isJoinable);
-
                     if (result == 0) {
                         shouldJoin = false;
-                        failingQuery = query;
-//                        System.out.println(u+ " " + v + " " + mapping + " Query,NI:"+ query + ", res:"+shouldJoin + ", joinable:"+isJoinable);
                         break;
                     }
                 }
@@ -247,51 +251,11 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
             }
         }
         mapping.remove(u);
-//        if (shouldJoin != isJoinable) {
-//            System.out.println(mapping + " Query(NonInduced):"+ failingQuery + ", res:"+shouldJoin + ", joinable:"+isJoinable);
-//            report.writePartialEmbeddingError(mapping, u, v, isJoinable, shouldJoin, SubgraphMatchingType.NonInduced);
-//            return false;
-//        }
         if(!shouldJoin){
-//            System.out.println(mapping + " Query(NonInduced):"+ failingQuery + ", res:"+shouldJoin);
             return false;
         }
 
         return true;
-
-
-//        mapping.put(u, v);
-//        boolean shouldJoin = true;
-//        String failingQuery = "";
-//        for (Integer queryNodeId : mapping.keySet()) {
-//            LabeledVertex queryVertex = queryGraph.vertexSet().stream().filter(q -> q.getNodeId() == queryNodeId).findAny().get();
-//            List<LabeledVertex> neighbors = new ArrayList<>(queryGraph.vertexSet());
-//            neighbors.removeAll(Graphs.neighborListOf(queryGraph, queryVertex));
-//            for (LabeledVertex neighbor : neighbors) {
-//                if (mapping.containsKey(neighbor.getNodeId())) {
-//                    String query = "MATCH(N1:" + dataGraphName + "{id:" + mapping.get(queryNodeId) + "})-" +
-//                            "[r:link] -(N2:" + dataGraphName + "{id:" + mapping.get(neighbor.getNodeId()) + "}) " +
-//                            " WHERE N1.id <> N2.id RETURN SIGN(COUNT(r)) as RES";
-//
-//                    Result res = dbService.execute(query);
-//                    long result = (Long) res.next().get("RES");
-////                    System.out.println("Query,NI:"+ query + ", res:"+result + ", joinable:"+isJoinable);
-//
-//                    if (result != 0) {
-//                        shouldJoin = false;
-//                        failingQuery = query;
-////                        System.out.println(u+ " " + v + " " + mapping + " Query,NI:"+ query + ", res:"+shouldJoin + ", joinable:"+isJoinable);
-//                        break;
-//                    }
-//                }
-//            }
-//        }
-//        if (shouldJoin != isJoinable) {
-//            System.out.println(mapping + " Query:"+ failingQuery + ", res:"+shouldJoin + ", joinable:"+isJoinable);
-//            report.writePartialEmbeddingError(mapping, u, v, isJoinable, shouldJoin);
-//        }
-//
-//        mapping.remove(u);
     }
 
     private void partialEmbeddingMatchWithGroundTruth(Map<Integer, Integer> mapping, int u, int v, boolean isJoinable) {
@@ -307,12 +271,11 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
         }
 
         if (shouldJoin && !isJoinable) {
+            //error
             report.writePartialEmbeddingError(mapping, u, v, isJoinable, shouldJoin, this.type);
-//            System.out.println("partialEmbeddingMatchWithGroundTruth:::Error");
         } else if (!shouldJoin && isJoinable) {
             //warning
             report.writePartialEmbeddingWarning(mapping, u, v, isJoinable, shouldJoin, this.type);
-//            System.out.println("partialEmbeddingMatchWithGroundTruth:::Warning" + mapping);
         }
         mapping.remove(u);
 
@@ -328,17 +291,7 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
                 match = true;
                 break;
             }
-//            for (int key : mapping.keySet()) {
-//                if (!gtMapping.containsKey(key) || !Objects.equals(gtMapping.get(key), mapping.get(key))) {
-//                    match = false;
-//                    break;
-//                }
-//            }
         }
-
-//        if(groundTruth.isEmpty()){
-//            match = false;
-//        }
 
         if(!match){
             //error
@@ -363,10 +316,10 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
             }
         }
         if (entryMissing) {
-            report.writeStateError(mapping, u, v, true);
+            report.writeStateError(this.currentEmbedding, mapping, u, v, true);
         }
         if (mismatchEmbedding) {
-            report.writeStateError(mapping, u, v, true);
+            report.writeStateError(this.currentEmbedding, mapping, u, v, true);
         }
     }
 
@@ -385,10 +338,10 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
             }
         }
         if (entryPresent) {
-            report.writeStateError(mapping, u, v, true);
+            report.writeStateError(this.currentEmbedding, mapping, u, v, false);
         }
         if (mismatchEmbedding) {
-            report.writeStateError(mapping, u, v, true);
+            report.writeStateError(this.currentEmbedding,mapping, u, v, false);
         }
     }
 
@@ -405,6 +358,10 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
             }
         }
         return true;
+    }
+
+    public void writeResults(Set<Map<Integer, Integer>> result){
+        this.report.writeFullEmbeddings(result, groundTruth);
     }
 
     public void finishReportWriting() {

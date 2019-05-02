@@ -27,9 +27,9 @@ public class CreateSampleDB {
     private static BatchInserter inserter;
     private static CreateSampleDB instance = null;
     private HashMap<Integer, String> nodeLabelMapping;
-    private List<Integer> nodeEdgeCounts;
+    private Map<Integer,Integer> nodeEdgeCounts;
     private List<Pair<Integer, Integer>> relationshipMapping;
-    private List<List<String>> neighbors;
+    private Map<Integer,List<String>> neighbors;
 
     public static CreateSampleDB getInstance(){
         if (instance ==null){
@@ -52,18 +52,19 @@ public class CreateSampleDB {
     public void parseData(ArrayList<String> content){
         int nodeCount = Integer.parseInt(content.remove(0));
         nodeLabelMapping = new HashMap<>();
-        nodeEdgeCounts = new ArrayList<>();
+        nodeEdgeCounts = new HashMap<>();
         relationshipMapping = new ArrayList<>();
-        neighbors = new ArrayList<>();
+        neighbors = new HashMap<>();
         for (int i = 0; i < nodeCount; i++) {
             String line = content.remove(0);
             String[] node = line.split(" ");
             nodeLabelMapping.put(Integer.parseInt(node[0]), node[1]);
         }
         while (content.size() > 0) {
+            int nodeId = -1;
             ArrayList<String> temp = new ArrayList<>();
             int edgeCount = Integer.parseInt(content.remove(0));
-            nodeEdgeCounts.add(edgeCount);
+
             String nodeLabel = "";
             for (int i = 0; i < edgeCount; i++) {
                 String edge = content.remove(0);
@@ -72,11 +73,13 @@ public class CreateSampleDB {
                         || relationshipMapping.contains(new Pair(Integer.parseInt(nodes[1]), Integer.parseInt(nodes[0]))))) {
                     relationshipMapping.add(new Pair(Integer.parseInt(nodes[0]), Integer.parseInt(nodes[1])));
                 }
+                nodeId = Integer.parseInt(nodes[0]);
                 nodeLabel = nodeLabelMapping.get(Integer.parseInt(nodes[0]));
                 temp.add(nodeLabelMapping.get(Integer.parseInt(nodes[1])));
             }
+            nodeEdgeCounts.put(nodeId,edgeCount);
             temp.add(nodeLabel);
-            neighbors.add(temp);
+            neighbors.put(nodeId,temp);
         }
 
 
@@ -100,11 +103,12 @@ public class CreateSampleDB {
             for (int i : nodeLabelMapping.keySet()) {
                 HashMap<String, Object> map = new HashMap<>();
                 map.put("id", i);
-                map.put("edge_count", nodeEdgeCounts.get(i-1));
+                map.put("edge_count", nodeEdgeCounts.get(i));
 //                map.put("profile", getStringOfNeighbors(neighbors.get(i)));
-                Collections.sort(neighbors.get(i-1));
+                Collections.sort(neighbors.get(i));
+                System.out.println(neighbors.get(i));
+                map.put("profile", neighbors.get(i).stream().toArray(String[]::new));//neighbors.get(i).toArray(new String[neighbors.get(i).size()]));
                 System.out.println(map);
-//                map.put("profile", neighbors.get(i).toArray(new String[neighbors.get(i-1).size()]));
                 inserter.createNode(getUniqueNodeId(i, gId), map, Label.label(label), Label.label(nodeLabelMapping.get(i)));
             }
             for (int i = 0; i < relationshipMapping.size(); i++) {

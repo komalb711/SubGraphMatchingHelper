@@ -2,131 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dea33017-d045-473b-b7b4-1d32effb7c43" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.counts.db.a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.labelscanstore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.labeltokenstore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.labeltokenstore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.labeltokenstore.db.names" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.labeltokenstore.db.names.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.nodestore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.nodestore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.nodestore.db.labels" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.nodestore.db.labels.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.propertystore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.propertystore.db.arrays" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.propertystore.db.arrays.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.propertystore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.propertystore.db.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.propertystore.db.index.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.propertystore.db.index.keys" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.propertystore.db.index.keys.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.propertystore.db.strings" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.propertystore.db.strings.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.relationshipgroupstore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.relationshipgroupstore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.relationshipstore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.relationshipstore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.relationshiptypestore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.relationshiptypestore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.relationshiptypestore.db.names" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.relationshiptypestore.db.names.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.schemastore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.schemastore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/neostore.transaction.db.0" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/store_lock" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.counts.db.a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.counts.db.b" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.labelscanstore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.labeltokenstore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.labeltokenstore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.labeltokenstore.db.names" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.labeltokenstore.db.names.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.nodestore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.nodestore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.nodestore.db.labels" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.nodestore.db.labels.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.arrays" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.arrays.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.index.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.index.keys" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.index.keys.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.strings" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.strings.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.relationshipgroupstore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.relationshipgroupstore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.relationshipstore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.relationshipstore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.relationshiptypestore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.relationshiptypestore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.relationshiptypestore.db.names" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.relationshiptypestore.db.names.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.schemastore.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.schemastore.db.id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/neostore.transaction.db.0" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLES/store_lock" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/GroundTruth-Induced.text" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/GroundTruth-NonInduced.text" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_12_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_12_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_3_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_3_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_4_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_4_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_4_3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_4_4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_4_5.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_4_6.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_5_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_5_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_5_3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_5_4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_5_5.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_5_6.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_5_7.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_6_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_6_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_6_3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_6_4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_7_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_7_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_7_3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_7_4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_7_5.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Proteins/Samples/s_7_6.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Report_2019-04-05_naive_induced_graph.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Report_2019-04-05_naive_induced_gt.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Report_2019-04-05_naive_noninduced_graph.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Report_2019-04-05_naive_noninduced_gt.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Report_2019-04-05_vf2_induced_graph.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Report_2019-04-05_vf2_induced_gt.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Report_2019-04-05_vf2_noninduced_graph.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Report_2019-04-05_vf2_noninduced_gt.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CreateSampleDB.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EmbeddingCheckType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Naive_SampleData_Induced.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Naive_SampleData_NonInduced.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Parser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SubgraphMatchingType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/VF2_Proteins_Induced.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/VF2_Proteins_NonInduced.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/VF2_forSampleData_Induced.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/VF2_forSampleData_NonInduced.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SubGraphMatchingHelper/CreateDB.class" afterPath="$PROJECT_DIR$/out/production/SubGraphMatchingHelper/CreateDB.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.counts.db.a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.counts.db.b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.labelscanstore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.labeltokenstore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.labeltokenstore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.labeltokenstore.db.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.labeltokenstore.db.names.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.nodestore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.nodestore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.nodestore.db.labels" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.nodestore.db.labels.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.arrays" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.arrays.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.index.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.index.keys" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.index.keys.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.strings" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.propertystore.db.strings.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.relationshipgroupstore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.relationshipgroupstore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.relationshipstore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.relationshipstore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.relationshiptypestore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.relationshiptypestore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.relationshiptypestore.db.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.relationshiptypestore.db.names.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.schemastore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.schemastore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/neostore.transaction.db.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SAMPLES/store_lock" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SubGraphMatchingHelper/CreateTestDB.class" afterPath="$PROJECT_DIR$/out/production/SubGraphMatchingHelper/CreateTestDB.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CandidateType.java" afterPath="$PROJECT_DIR$/src/CandidateType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CreateDB.java" afterPath="$PROJECT_DIR$/src/CreateDB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HookupInterface.java" afterPath="$PROJECT_DIR$/src/HookupInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CreateSampleDB.java" afterPath="$PROJECT_DIR$/src/CreateSampleDB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CreateTestDB.java" afterPath="$PROJECT_DIR$/src/CreateTestDB.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JgraphtNeo4jDebugger.java" afterPath="$PROJECT_DIR$/src/JgraphtNeo4jDebugger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/StateWithCustomVertex.java" afterPath="$PROJECT_DIR$/src/StateWithCustomVertex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Utils.java" afterPath="$PROJECT_DIR$/src/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/VF2.java" afterPath="$PROJECT_DIR$/src/VF2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Naive_SampleData_Induced.java" afterPath="$PROJECT_DIR$/src/Naive_SampleData_Induced.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Naive_SampleData_NonInduced.java" afterPath="$PROJECT_DIR$/src/Naive_SampleData_NonInduced.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/VF2_Proteins_Induced.java" afterPath="$PROJECT_DIR$/src/VF2_Proteins_Induced.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/VF2_Proteins_NonInduced.java" afterPath="$PROJECT_DIR$/src/VF2_Proteins_NonInduced.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/VF2_forSampleData_Induced.java" afterPath="$PROJECT_DIR$/src/VF2_forSampleData_Induced.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/VF2_forSampleData_NonInduced.java" afterPath="$PROJECT_DIR$/src/VF2_forSampleData_NonInduced.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WriteReport.java" afterPath="$PROJECT_DIR$/src/WriteReport.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -142,8 +63,28 @@
       <file leaf-file-name="JgraphtNeo4jDebugger.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/JgraphtNeo4jDebugger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7525">
-              <caret line="306" column="9" lean-forward="false" selection-start-line="306" selection-start-column="9" selection-end-line="306" selection-end-column="9" />
+            <state relative-caret-position="275">
+              <caret line="16" column="51" lean-forward="false" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateDB.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CreateDB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2200">
+              <caret line="101" column="50" lean-forward="false" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VF2_forSampleData_Induced.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/VF2_forSampleData_Induced.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8550">
+              <caret line="355" column="49" lean-forward="false" selection-start-line="355" selection-start-column="46" selection-end-line="355" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -152,65 +93,35 @@
       <file leaf-file-name="VF2_Proteins_Induced.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/VF2_Proteins_Induced.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="250" column="93" lean-forward="false" selection-start-line="250" selection-start-column="73" selection-end-line="250" selection-end-column="93" />
+            <state relative-caret-position="12175">
+              <caret line="500" column="30" lean-forward="false" selection-start-line="500" selection-start-column="30" selection-end-line="500" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NaiveMatching_induced.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/NaiveMatching_induced.java">
+      <file leaf-file-name="Naive_SampleData_Induced_Issue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Naive_SampleData_Induced_Issue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="67" column="62" lean-forward="true" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
+            <state relative-caret-position="3650">
+              <caret line="159" column="44" lean-forward="false" selection-start-line="159" selection-start-column="44" selection-end-line="159" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="s_12_1.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Proteins/Samples/s_12_1.txt">
+      <file leaf-file-name="Naive_Proteins_Induced.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Naive_Proteins_Induced.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+            <state relative-caret-position="5350">
+              <caret line="227" column="20" lean-forward="false" selection-start-line="227" selection-start-column="20" selection-end-line="227" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GroundTruth-Induced.text" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Proteins/Samples/GroundTruth-Induced.text">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180925">
-              <caret line="7237" column="19" lean-forward="false" selection-start-line="7237" selection-start-column="19" selection-end-line="7237" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VF2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/VF2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14600">
-              <caret line="584" column="44" lean-forward="false" selection-start-line="584" selection-start-column="44" selection-end-line="584" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VF2_Proteins_NonInduced.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/VF2_Proteins_NonInduced.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1775">
-              <caret line="84" column="41" lean-forward="false" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Report_2019-04-05_vf2_induced_gt.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Report_2019-04-05_vf2_induced_gt.txt">
+      <file leaf-file-name="SubGraphMatchingHelper.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SubGraphMatchingHelper.iml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -219,11 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Report_2019-04-05_vf2_noninduced_graph.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Report_2019-04-05_vf2_noninduced_graph.txt">
+      <file leaf-file-name="Naive_SampleData_Induced.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Naive_SampleData_Induced.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="296">
+              <caret line="159" column="13" lean-forward="true" selection-start-line="159" selection-start-column="13" selection-end-line="159" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -242,36 +153,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>NonInduced</find>
-      <find>QUERY</find>
-      <find>DATA</find>
-      <find>System.out.println</find>
-      <find>writePartialEmbeddingError</find>
-      <find>DATA FILE</find>
-      <find>System</find>
-      <find>Induced</find>
-      <find>False Negative:0</find>
-      <find>False Positive:</find>
-      <find>queryGraph</find>
-      <find>S_4_2</find>
-      <find>False Positive</find>
-      <find>System.out</find>
-      <find>False Positive:2</find>
-      <find>False Positive:3</find>
-      <find>False Positive:4</find>
-      <find>QUERY FILE</find>
-      <find>DATA FILE:s_3_1.txt</find>
       <find>Full Embedding did not match</find>
       <find>currentEmbedding.put</find>
       <find>currentEmbedding</find>
       <find>partialEmbeddingMatchWithGroundTruth</find>
       <find>induced</find>
-      <find>neo4jDebugger</find>
       <find>QUERY FILE:backbones_1QJ5.8.sub.grf</find>
       <find>False Negative</find>
-      <find>neighborListOf</find>
-      <find>getNeighboursOfNode</find>
       <find>System.out.</find>
+      <find>findAugmentingPath</find>
+      <find>checkSemiPerfectMatching</find>
+      <find>Marking</find>
+      <find>Marking:7 6</find>
+      <find>markedMapping</find>
+      <find>ArrayList</find>
+      <find>s_5_4.txt</find>
+      <find>neighborListOf</find>
+      <find>s_12_1</find>
+      <find>DATA FILE:s_12_1.txt</find>
+      <find>markNodes</find>
+      <find>getNeighboursOfNode</find>
+      <find>False Negative:2</find>
+      <find>searchSpaceReduction</find>
+      <find>False Positive:0</find>
+      <find>writePartialEmbeddingWarning</find>
+      <find>neo4jDebugger</find>
+      <find>Issue in nodes</find>
+      <find>writeStateError</find>
+      <find>False Negative:0</find>
+      <find>False Positive</find>
+      <find>partial</find>
     </findStrings>
     <replaceStrings>
       <replace>State_updated</replace>
@@ -289,21 +200,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Proteins/Samples/query/6-1.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/query/6-2.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/query/6-3.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/query/6-4.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/target/D1.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/query/7-1.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/query/7-2.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/query/7-3.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/query/7-4.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/query/7-5.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/query/7-6.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/query/12-1.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/query/12-2.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/3-1.txt" />
-        <option value="$PROJECT_DIR$/Proteins/Samples/5-2.txt" />
         <option value="$PROJECT_DIR$/Proteins/Samples/5-3.txt" />
         <option value="$PROJECT_DIR$/Proteins/Samples/5-4.txt" />
         <option value="$PROJECT_DIR$/Proteins/Samples/5-5.txt" />
@@ -325,20 +221,35 @@
         <option value="$PROJECT_DIR$/src/Utils.java" />
         <option value="$PROJECT_DIR$/src/StateWithCustomVertex.java" />
         <option value="$PROJECT_DIR$/src/VF2_forSampleData.java" />
-        <option value="$PROJECT_DIR$/src/CreateSampleDB.java" />
         <option value="$PROJECT_DIR$/Proteins/Samples/GroundTruth-NonInduced.text" />
         <option value="$PROJECT_DIR$/Report_2019-04-04.txt" />
-        <option value="$PROJECT_DIR$/src/WriteReport.java" />
         <option value="$PROJECT_DIR$/src/HookupInterface.java" />
-        <option value="$PROJECT_DIR$/src/VF2_forSampleData_Induced.java" />
-        <option value="$PROJECT_DIR$/src/VF2_forSampleData_NonInduced.java" />
         <option value="$PROJECT_DIR$/src/SampleData_NonInduced.java" />
         <option value="$PROJECT_DIR$/src/SampleData_Induced.java" />
         <option value="$PROJECT_DIR$/src/VF2.java" />
-        <option value="$PROJECT_DIR$/src/VF2_Proteins_NonInduced.java" />
-        <option value="$PROJECT_DIR$/src/JgraphtNeo4jDebugger.java" />
-        <option value="$PROJECT_DIR$/src/VF2_Proteins_Induced.java" />
         <option value="$PROJECT_DIR$/src/Naive_SampleData_NonInduced_optimized.java" />
+        <option value="$PROJECT_DIR$/src/GraphQL_SampleData_NonInduced.java" />
+        <option value="$PROJECT_DIR$/Report_2019-04-08.txt" />
+        <option value="$PROJECT_DIR$/Report_2019-04-11.txt" />
+        <option value="$PROJECT_DIR$/src/Optimized_VF2_forSampleData_Induced.java" />
+        <option value="$PROJECT_DIR$/src/Naive_SampleData_NonInduced.java" />
+        <option value="$PROJECT_DIR$/src/NaiveMatching_induced.java" />
+        <option value="$PROJECT_DIR$/src/VF2_forSampleData_Induced.java" />
+        <option value="$PROJECT_DIR$/src/VF2_forSampleData_NonInduced.java" />
+        <option value="$PROJECT_DIR$/src/VF2_Proteins_NonInduced.java" />
+        <option value="$PROJECT_DIR$/Report_2019-04-15.txt" />
+        <option value="$PROJECT_DIR$/src/JgraphtNeo4jDebugger.java" />
+        <option value="$PROJECT_DIR$/src/Naive_SampleData_Induced_Issue2.java" />
+        <option value="$PROJECT_DIR$/Report_2019-04-16.txt" />
+        <option value="$PROJECT_DIR$/src/CreateDB.java" />
+        <option value="$PROJECT_DIR$/src/CreateTestDB.java" />
+        <option value="$PROJECT_DIR$/src/CreateSampleDB.java" />
+        <option value="$PROJECT_DIR$/src/WriteReport.java" />
+        <option value="$PROJECT_DIR$/src/Naive_Proteins_Induced.java" />
+        <option value="$PROJECT_DIR$/src/VF2_Proteins_Induced.java" />
+        <option value="$PROJECT_DIR$/Report_2019-04-17.txt" />
+        <option value="$PROJECT_DIR$/src/Naive_SampleData_Induced_Issue1.java" />
+        <option value="$PROJECT_DIR$/src/Naive_SampleData_Induced.java" />
         <option value="$PROJECT_DIR$/src/GraphQL_SampleData_Induced.java" />
       </list>
     </option>
@@ -370,8 +281,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -388,16 +301,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="C:/CSCI_729/Homeworks/HW08/Assignment8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Naive_SampleData_Induced.java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last.edited.regexp" value="data.txt" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/Naive_SampleData_Induced.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -424,10 +336,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GraphQL_SampleData_Induced">
-    <configuration name="GraphQL_SampleData_Induced" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Naive_SampleData_Induced_Issue1">
+    <configuration name="CreateSampleDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="GraphQL_SampleData_Induced" />
+      <option name="MAIN_CLASS_NAME" value="CreateSampleDB" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="SubGraphMatchingHelper" />
+      <envs />
+    </configuration>
+    <configuration name="Naive_Proteins_Induced" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="Naive_Proteins_Induced" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -453,9 +379,9 @@
       <module name="SubGraphMatchingHelper" />
       <envs />
     </configuration>
-    <configuration name="Naive_SampleData_NonInduced" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Naive_SampleData_Induced_Issue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Naive_SampleData_NonInduced" />
+      <option name="MAIN_CLASS_NAME" value="Naive_SampleData_Induced_Issue" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -470,20 +396,6 @@
     <configuration name="VF2_Proteins_Induced" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="VF2_Proteins_Induced" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="SubGraphMatchingHelper" />
-      <envs />
-    </configuration>
-    <configuration name="VF2_forSampleData_Induced" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="VF2_forSampleData_Induced" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -511,19 +423,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.VF2_forSampleData_Induced" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Naive_SampleData_NonInduced" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Naive_SampleData_Induced" />
-      <item index="3" class="java.lang.String" itemvalue="Application.VF2_Proteins_Induced" />
-      <item index="4" class="java.lang.String" itemvalue="Application.GraphQL_SampleData_Induced" />
+      <item index="0" class="java.lang.String" itemvalue="Application.Naive_SampleData_Induced_Issue1" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Naive_Proteins_Induced" />
+      <item index="2" class="java.lang.String" itemvalue="Application.CreateSampleDB" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Naive_SampleData_Induced" />
+      <item index="4" class="java.lang.String" itemvalue="Application.VF2_Proteins_Induced" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.GraphQL_SampleData_Induced" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Naive_SampleData_Induced_Issue1" />
         <item index="1" class="java.lang.String" itemvalue="Application.VF2_Proteins_Induced" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Naive_SampleData_Induced" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Naive_SampleData_NonInduced" />
-        <item index="4" class="java.lang.String" itemvalue="Application.VF2_forSampleData_Induced" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Naive_Proteins_Induced" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Naive_SampleData_Induced" />
+        <item index="4" class="java.lang.String" itemvalue="Application.CreateSampleDB" />
       </list>
     </recent_temporary>
   </component>
@@ -540,7 +452,7 @@
     </task>
     <servers />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -551,34 +463,33 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60573477" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7837515" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32756758" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34972972" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47192353" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39665473" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -593,17 +504,17 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47192353" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39665473" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.84348863" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.7837515" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31567568" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3372973" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -628,46 +539,22 @@
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/CreateSampleDB.java</url>
-          <line>91</line>
-          <properties />
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/CreateSampleDB.java</url>
-          <line>99</line>
-          <properties />
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JgraphtNeo4jDebugger.java</url>
-          <line>151</line>
+          <line>171</line>
           <properties />
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JgraphtNeo4jDebugger.java</url>
-          <line>275</line>
-          <properties />
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/VF2_forSampleData_Induced.java</url>
-          <line>145</line>
+          <line>142</line>
           <properties />
           <option name="timeStamp" value="96" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/VF2_forSampleData_Induced.java</url>
-          <line>148</line>
+          <line>145</line>
           <properties />
           <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JgraphtNeo4jDebugger.java</url>
-          <line>386</line>
-          <properties />
-          <option name="timeStamp" value="119" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/VF2_Proteins_Induced.java</url>
@@ -677,25 +564,61 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/VF2_Proteins_Induced.java</url>
-          <line>612</line>
+          <line>488</line>
           <properties />
           <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/VF2_Proteins_Induced.java</url>
-          <line>93</line>
+          <line>96</line>
           <properties />
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/VF2_Proteins_Induced.java</url>
-          <line>99</line>
+          <line>102</line>
           <properties />
           <option name="timeStamp" value="128" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Naive_SampleData_Induced.java</url>
+          <line>92</line>
+          <properties />
+          <option name="timeStamp" value="167" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Naive_SampleData_Induced.java</url>
+          <line>89</line>
+          <properties />
+          <option name="timeStamp" value="168" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Naive_SampleData_Induced.java</url>
+          <line>141</line>
+          <properties />
+          <option name="timeStamp" value="170" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/VF2_Proteins_NonInduced.java</url>
+          <line>83</line>
+          <properties />
+          <option name="timeStamp" value="171" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Naive_SampleData_Induced_Issue.java</url>
+          <line>110</line>
+          <properties />
+          <option name="timeStamp" value="172" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Naive_Proteins_Induced.java</url>
+          <line>144</line>
+          <properties />
+          <option name="timeStamp" value="191" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/VF2_forSampleData_Induced.java</url>
-          <line>620</line>
+          <line>495</line>
           <properties class="VF2_forSampleData_Induced" method="checkResults">
             <option name="EMULATED" value="true" />
           </properties>
@@ -703,7 +626,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/VF2_forSampleData_Induced.java</url>
-          <line>140</line>
+          <line>137</line>
           <properties class="VF2_forSampleData_Induced" method="searchProcHelper">
             <option name="EMULATED" value="true" />
           </properties>
@@ -711,7 +634,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/VF2_forSampleData_Induced.java</url>
-          <line>183</line>
+          <line>180</line>
           <properties class="VF2_forSampleData_Induced" method="rule1">
             <option name="EMULATED" value="true" />
           </properties>
@@ -719,7 +642,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/VF2_forSampleData_Induced.java</url>
-          <line>224</line>
+          <line>210</line>
           <properties class="VF2_forSampleData_Induced" method="rule2">
             <option name="EMULATED" value="true" />
           </properties>
@@ -727,7 +650,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/VF2_forSampleData_Induced.java</url>
-          <line>233</line>
+          <line>219</line>
           <properties class="VF2_forSampleData_Induced" method="rule3">
             <option name="EMULATED" value="true" />
           </properties>
@@ -735,15 +658,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/JgraphtNeo4jDebugger.java</url>
-          <line>373</line>
-          <properties class="JgraphtNeo4jDebugger" method="checkRestoredState">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="118" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/JgraphtNeo4jDebugger.java</url>
-          <line>296</line>
+          <line>260</line>
           <properties class="JgraphtNeo4jDebugger" method="partialEmbeddingMatchWithGroundTruth">
             <option name="EMULATED" value="true" />
           </properties>
@@ -751,7 +666,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/VF2_Proteins_NonInduced.java</url>
-          <line>583</line>
+          <line>439</line>
           <properties class="VF2_Proteins_NonInduced" method="getGroundTruth">
             <option name="EMULATED" value="true" />
           </properties>
@@ -759,147 +674,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/VF2_Proteins_Induced.java</url>
-          <line>460</line>
+          <line>336</line>
           <properties class="VF2_Proteins_Induced" method="computeCandidates">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="129" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/WriteReport.java</url>
+          <line>130</line>
+          <properties class="WriteReport" method="writeStateError">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="173" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="136" />
+      <option name="time" value="196" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Proteins/Samples/s_6_3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Proteins/Samples/s_6_4.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="28" column="3" lean-forward="false" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Proteins/Samples/s_6_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="24" column="3" lean-forward="false" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Report_2019-03-31-11pm.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="20" column="59" lean-forward="false" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_144/src.zip!/java/util/function/Predicate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="48" column="12" lean-forward="false" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Report_2019-03-31.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="22" column="45" lean-forward="false" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SubgraphMatchingType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EmbeddingCheckType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Report_2019-04-01.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14500">
-          <caret line="580" column="40" lean-forward="false" selection-start-line="580" selection-start-column="40" selection-end-line="580" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Proteins/ground_truth/Proteins.16.gtr">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Proteins/ground_truth/Proteins.8.gtr">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/VF2_induced.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="162" column="20" lean-forward="false" selection-start-line="139" selection-start-column="8" selection-end-line="162" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/VF2_non_induced.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="148" column="20" lean-forward="false" selection-start-line="138" selection-start-column="8" selection-end-line="148" selection-end-column="20" />
-          <folding>
-            <marker date="1548865890365" expanded="true" signature="5218:5662" ph="//..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ques2_non_induced.java" />
-    <entry file="file://$PROJECT_DIR$/src/Ques2_Induced.java" />
-    <entry file="file://$PROJECT_DIR$/Proteins/Samples/s_3_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Proteins/Samples/s_3_2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -921,14 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CreateSampleDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="91" column="36" lean-forward="true" selection-start-line="91" selection-start-column="36" selection-end-line="91" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/neo4j/neo4j-common-3.4.7.jar!/org/neo4j/kernel/lifecycle/LifeSupport.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="933">
@@ -936,85 +729,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Proteins/Samples/GroundTruth-NonInduced.text">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="55" lean-forward="true" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Report_2019-04-04_old.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4644275">
-          <caret line="185771" column="26" lean-forward="true" selection-start-line="185771" selection-start-column="26" selection-end-line="185771" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Report_2019-04-04_noninduced.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="44" lean-forward="false" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Report_2019-04-04.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WriteReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1157">
-          <caret line="129" column="31" lean-forward="false" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Report_2019-04-04_non_induced.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="7816" column="26" lean-forward="false" selection-start-line="7816" selection-start-column="26" selection-end-line="7816" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Report_2019-04-04_old.txt" />
+    <entry file="file://$PROJECT_DIR$/Report_2019-04-04_noninduced.txt" />
+    <entry file="file://$PROJECT_DIR$/Report_2019-04-04.txt" />
+    <entry file="file://$PROJECT_DIR$/Report_2019-04-04_non_induced.txt" />
     <entry file="file://$PROJECT_DIR$/src/HookupInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/VF2_forSampleData_Induced.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="171" column="132" lean-forward="false" selection-start-line="171" selection-start-column="132" selection-end-line="171" selection-end-column="132" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/VF2_forSampleData_NonInduced.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="157" column="16" lean-forward="false" selection-start-line="157" selection-start-column="16" selection-end-line="158" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Naive_SampleData_NonInduced.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="151" column="29" lean-forward="true" selection-start-line="151" selection-start-column="29" selection-end-line="151" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Naive_SampleData_Induced.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="146" column="65" lean-forward="true" selection-start-line="146" selection-start-column="65" selection-end-line="146" selection-end-column="65" />
           <folding />
         </state>
       </provider>
@@ -1037,7 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="926600">
           <caret line="37064" column="26" lean-forward="false" selection-start-line="37064" selection-start-column="26" selection-end-line="37064" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,7 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1053,99 +773,266 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Naive_SampleData_NonInduced_optimized.java" />
     <entry file="file://$PROJECT_DIR$/Report_2019-04-05_naive_induced_graph.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="-900">
           <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Report_2019-04-05_naive_induced_gt.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-825">
+        <state relative-caret-position="-300">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Report_2019-04-05_vf2_induced_graph.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="11657" column="26" lean-forward="false" selection-start-line="11657" selection-start-column="26" selection-end-line="11657" selection-end-column="26" />
+        <state relative-caret-position="307">
+          <caret line="11653" column="20" lean-forward="true" selection-start-line="11653" selection-start-column="20" selection-end-line="11653" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/VF2.java">
+    <entry file="file://$PROJECT_DIR$/src/GraphQL_SampleData_NonInduced.java" />
+    <entry file="file://$PROJECT_DIR$/src/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14600">
-          <caret line="584" column="44" lean-forward="false" selection-start-line="584" selection-start-column="44" selection-end-line="584" selection-end-column="44" />
+        <state relative-caret-position="421">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Report_2019-04-07.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="105" column="28" lean-forward="true" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Report_2019-04-08.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="67791" column="21" lean-forward="true" selection-start-line="67791" selection-start-column="21" selection-end-line="67791" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Report_2019-04-11.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47425">
+          <caret line="1897" column="23" lean-forward="false" selection-start-line="1897" selection-start-column="16" selection-end-line="1897" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NaiveMatching_non_induced.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-800">
+          <caret line="38" column="53" lean-forward="false" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Optimized_VF2_forSampleData_Induced.java" />
+    <entry file="file://$PROJECT_DIR$/Report_2019-04-15.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/VF2_Proteins_NonInduced.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1775">
-          <caret line="84" column="41" lean-forward="false" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
+        <state relative-caret-position="371">
+          <caret line="472" column="5" lean-forward="false" selection-start-line="439" selection-start-column="4" selection-end-line="472" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VF2_induced.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="76" column="54" lean-forward="false" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Report_2019-04-16.txt">
+      <provider editor-type-id="LargeFileEditor">
+        <state relative-caret-position="100">
+          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NaiveMatching_induced.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="363" column="83" lean-forward="false" selection-start-line="363" selection-start-column="55" selection-end-line="363" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Naive_SampleData_NonInduced.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-193">
+          <caret line="249" column="20" lean-forward="false" selection-start-line="249" selection-start-column="20" selection-end-line="249" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Naive_SampleData_Induced_Issue2.java" />
+    <entry file="file://$PROJECT_DIR$/Proteins/Samples/s_12_1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="31" column="1" lean-forward="false" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CreateTestDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="92" column="57" lean-forward="false" selection-start-line="92" selection-start-column="57" selection-end-line="92" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CreateSampleDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="102" column="53" lean-forward="true" selection-start-line="102" selection-start-column="53" selection-end-line="102" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VF2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="405" column="50" lean-forward="false" selection-start-line="405" selection-start-column="50" selection-end-line="405" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VF2_forSampleData_NonInduced.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2132">
+          <caret line="322" column="39" lean-forward="false" selection-start-line="322" selection-start-column="39" selection-end-line="322" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proteins/Samples/GroundTruth-NonInduced.text">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="310" column="14" lean-forward="false" selection-start-line="310" selection-start-column="14" selection-end-line="310" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proteins/Samples/GroundTruth-Induced.text">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4075">
+          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WriteReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2150">
+          <caret line="90" column="33" lean-forward="false" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proteins/ground_truth/Proteins.8.gtr">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VF2_Proteins_Induced.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12175">
+          <caret line="500" column="30" lean-forward="false" selection-start-line="500" selection-start-column="30" selection-end-line="500" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SubGraphMatchingHelper.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Report_2019-04-17.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Naive_Proteins_Induced.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5350">
+          <caret line="227" column="20" lean-forward="false" selection-start-line="227" selection-start-column="20" selection-end-line="227" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Naive_SampleData_Induced_Issue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3650">
+          <caret line="159" column="44" lean-forward="false" selection-start-line="159" selection-start-column="44" selection-end-line="159" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JgraphtNeo4jDebugger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7525">
-          <caret line="306" column="9" lean-forward="false" selection-start-line="306" selection-start-column="9" selection-end-line="306" selection-end-column="9" />
+        <state relative-caret-position="275">
+          <caret line="16" column="51" lean-forward="false" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Naive_SampleData_NonInduced_optimized.java">
+    <entry file="file://$PROJECT_DIR$/src/CreateDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1046">
-          <caret line="168" column="97" lean-forward="false" selection-start-line="168" selection-start-column="97" selection-end-line="168" selection-end-column="97" />
+        <state relative-caret-position="2200">
+          <caret line="101" column="50" lean-forward="false" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/VF2_Proteins_Induced.java">
+    <entry file="file://$PROJECT_DIR$/src/VF2_forSampleData_Induced.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="250" column="93" lean-forward="false" selection-start-line="250" selection-start-column="73" selection-end-line="250" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Proteins/Samples/GroundTruth-Induced.text">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180925">
-          <caret line="7237" column="19" lean-forward="false" selection-start-line="7237" selection-start-column="19" selection-end-line="7237" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Proteins/Samples/s_12_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+        <state relative-caret-position="8550">
+          <caret line="355" column="49" lean-forward="false" selection-start-line="355" selection-start-column="46" selection-end-line="355" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphQL_SampleData_Induced.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NaiveMatching_induced.java">
+    <entry file="file://$PROJECT_DIR$/src/Naive_SampleData_Induced.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="67" column="62" lean-forward="true" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
+        <state relative-caret-position="296">
+          <caret line="159" column="13" lean-forward="true" selection-start-line="159" selection-start-column="13" selection-end-line="159" selection-end-column="13" />
           <folding />
         </state>
       </provider>

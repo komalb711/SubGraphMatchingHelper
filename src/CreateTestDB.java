@@ -91,7 +91,7 @@ public class CreateTestDB {
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("id", i);
             map.put("edge_count", nodeEdgeCounts.get(i));
-            map.put("profile", neighbors.get(i).toArray(new String[neighbors.get(i).size()]));
+            map.put("profile", neighbors.get(i).stream().toArray(String[]::new));//neighbors.get(i).toArray(new String[neighbors.get(i).size()]));
             inserter.createNode(getUniqueNodeId(i, gId), map, Label.label(label), Label.label(nodeLabelMapping.get(i)));
         }
         for (int i = 0; i < relationshipMapping.size(); i++) {

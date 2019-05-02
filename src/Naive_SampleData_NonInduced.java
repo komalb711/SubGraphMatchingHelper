@@ -119,8 +119,8 @@ public class Naive_SampleData_NonInduced {
 
                         // start recursive search procedure
                         search(new HashMap<>());
-                        System.out.println("Results:" + queryFile + " " + dataFile);
-                        System.out.println(validEmbeddings);
+
+                        neo4jDebugger.writeResults(validEmbeddings);
 
                         // check the embeddings with ground truth
                         checkResults(validEmbeddings, groundTruth);

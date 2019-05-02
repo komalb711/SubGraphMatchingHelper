@@ -116,9 +116,9 @@ public class Naive_SampleData_Induced {
                         // call assistant to check our query order
                         neo4jDebugger.checkQueryOrder(nodeOrder, false);
 
-                        search(new HashMap<>());
-                        System.out.println("Results:" + queryFile + " " + dataFile);
-                        System.out.println(validEmbeddings);
+                        search(new HashMap<>(), 0);
+
+                        neo4jDebugger.writeResults(validEmbeddings);
 
                         // check the embeddings with ground truth
                         checkResults(validEmbeddings, groundTruth);
@@ -137,24 +137,23 @@ public class Naive_SampleData_Induced {
         db.shutdown();
     }
 
-    private void search(HashMap<Integer, Integer> embedding){
-        if(embedding.size() == queryGraph.vertexSet().size()){
+    private void search(HashMap<Integer, Integer> embedding, int index){
+        if(embedding.size() == nodeOrder.size()){
             neo4jDebugger.checkFullEmbedding(embedding);
             validEmbeddings.add(new HashMap<>(embedding));
         } else{
-            int nodeCnt = embedding.size();
-            int nextNodeId =  nodeOrder.get(nodeCnt);
+            int nextNodeId =  nodeOrder.get(index);
             neo4jDebugger.checkNextVertex(nodeOrder, nextNodeId);
             for(int id: candidateMap.get(nextNodeId)){
                 if(embedding.containsValue(id)){
                     continue;
                 }
-                boolean isJoinable = edgeChecking(embedding, nextNodeId, id);// && edgeCheckingInduced(nextNodeId, id, embedding);
+                boolean isJoinable = edgeChecking(embedding, nextNodeId, id) && edgeCheckingInduced(nextNodeId, id, embedding);
                 neo4jDebugger.checkPartialEmbedding(embedding, nextNodeId, id, EmbeddingCheckType.WithGraph, isJoinable);
                 if(isJoinable) {
                     embedding.put(nextNodeId, id);
                     neo4jDebugger.checkUpdatedState(embedding, nextNodeId, id);
-                    search(embedding);
+                    search(embedding,index+1);
                     embedding.remove(nextNodeId);
                     neo4jDebugger.checkRestoredState(embedding, nextNodeId, id);
                 }
@@ -198,6 +197,8 @@ public class Naive_SampleData_Induced {
         for(int i=0; i<neighbours.size();i++){
             int node = neighbours.get(i).getNodeId();
             if(embedding.containsKey(node)){
+
+
                 if(!doesEdgeExist(embedding.get(node), variableLabelMap.get(String.valueOf(node)), dataNode, variableLabelMap.get(String.valueOf(queryNode)))){
                     return false;
                 }
@@ -291,7 +292,8 @@ public class Naive_SampleData_Induced {
                 allDataNodes.add((Integer) node.getProperty("id"));
                 edgeCount += (Integer) node.getProperty("edge_count");
                 nodeCount++;
-                if (node.hasLabel(Label.label(lbl))) {
+                int queryEdgeCount = Graphs.neighborSetOf(queryGraph,allQueryNodes.get(Integer.parseInt(key))).size();
+                if (node.hasLabel(Label.label(lbl)) && edgeCount>=queryEdgeCount && matchProfiles(node, key) ) {
                     candidates.add((Integer) node.getProperty("id"));
                 }
             }
@@ -303,6 +305,24 @@ public class Naive_SampleData_Induced {
         gamma = ((float) edgeCount * 2) / ((float) nodeCount * (nodeCount - 1));
         for (int key : candidateMap.keySet()) {
             if (candidateMap.get(key).size() == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    private boolean matchProfiles(Node dataNode, String queryNode) {
+        int nodeId = Integer.parseInt(queryNode);
+        String[] profile = (String[]) dataNode.getProperty("profile");
+        int v = 0, u = 0;
+        while (v < profile.length && u < queryProfiles.get(nodeId).size()) {
+            if (profile[v].equals(queryProfiles.get(nodeId).get(u))) {
+                v++;
+                u++;
+            } else if (profile[v].compareTo(queryProfiles.get(nodeId).get(u)) < 0) {
+                v++;
+            } else {
                 return false;
             }
         }

@@ -25,8 +25,8 @@ public class CreateTestDB {
 
     private static GraphDatabaseService db;
 
-    public static CreateTestDB getInstance(){
-        if (instance ==null){
+    public static CreateTestDB getInstance() {
+        if (instance == null) {
             instance = new CreateTestDB();
         }
         return instance;
@@ -43,7 +43,7 @@ public class CreateTestDB {
         checkData();
     }
 
-    private void parseData(ArrayList<String> content){
+    private void parseData(ArrayList<String> content) {
         int nodeCount = Integer.parseInt(content.remove(0));
         nodeLabelMapping = new HashMap<>();
         nodeEdgeCounts = new ArrayList<>();
@@ -62,19 +62,17 @@ public class CreateTestDB {
             for (int i = 0; i < edgeCount; i++) {
                 String edge = content.remove(0);
                 String[] nodes = edge.split(" ");
-                if(!(relationshipMapping.contains(new Pair(Integer.parseInt(nodes[0]), Integer.parseInt(nodes[1])))
+                if (!(relationshipMapping.contains(new Pair(Integer.parseInt(nodes[0]), Integer.parseInt(nodes[1])))
                         || relationshipMapping.contains(new Pair(Integer.parseInt(nodes[1]), Integer.parseInt(nodes[0]))))) {
                     relationshipMapping.add(new Pair(Integer.parseInt(nodes[0]), Integer.parseInt(nodes[1])));
                 }
                 nodeLabel = nodeLabelMapping.get(Integer.parseInt(nodes[0]));
                 temp.add(nodeLabelMapping.get(Integer.parseInt(nodes[1])));
-
             }
             temp.add(nodeLabel);
-            System.out.println("neighbors" + temp );
+            System.out.println("neighbors" + temp);
             neighbors.add(temp);
         }
-
     }
 
 
@@ -101,51 +99,47 @@ public class CreateTestDB {
         gId++;
         System.out.println("Data loaded for file:" + fileName);
         long endTime = System.currentTimeMillis();
-        System.out.println("Load Time:" + (endTime-startTime) + "milliseconds");
+        System.out.println("Load Time:" + (endTime - startTime) + "milliseconds");
         closeConnectionToNeo4j();
     }
 
-    private static int getUniqueNodeId(int nodeId, int gId){
-        return gId*100000+nodeId;
+    private static int getUniqueNodeId(int nodeId, int gId) {
+        return gId * 100000 + nodeId;
     }
 
-    private static void checkData(){
+    private static void checkData() {
         GraphDatabaseFactory dbFactory = new GraphDatabaseFactory();
         GraphDatabaseService db = dbFactory.newEmbeddedDatabase(new File(PROJECT_NAME));
         Result res = db.execute("MATCH(G:Test) RETURN G.id, G.edge_count, G.profile");
-        while(res.hasNext()){
+        while (res.hasNext()) {
             Map<String, Object> obj = res.next();
             String[] profile = (String[]) obj.get("G.profile");
-            System.out.println(obj.get("G.id")+ " " + obj.get("G.edge_count") + " " + Arrays.toString(profile));
+            System.out.println(obj.get("G.id") + " " + obj.get("G.edge_count") + " " + Arrays.toString(profile));
         }
         res.close();
         db.shutdown();
     }
 
-    private ArrayList<String> readFile(String filename){
-        try
-        {
-            ArrayList<String> list= new ArrayList<>();
+    private ArrayList<String> readFile(String filename) {
+        try {
+            ArrayList<String> list = new ArrayList<>();
             BufferedReader reader = new BufferedReader(new FileReader(filename));
             String line;
-            while ((line = reader.readLine()) != null)
-            {
+            while ((line = reader.readLine()) != null) {
                 list.add(line);
             }
             reader.close();
             return list;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.err.format("Exception occurred trying to read '%s'.", filename);
             e.printStackTrace();
             return null;
         }
     }
 
-    private String getStringOfNeighbors(List<String> neighborLabels){
+    private String getStringOfNeighbors(List<String> neighborLabels) {
         StringBuffer buffer = new StringBuffer();
-        for(String val: neighborLabels){
+        for (String val : neighborLabels) {
             buffer.append(val);
         }
         return buffer.toString();
@@ -155,7 +149,7 @@ public class CreateTestDB {
         inserter = BatchInserters.inserter(new File(PROJECT_NAME));
     }
 
-    private void closeConnectionToNeo4j(){
+    private void closeConnectionToNeo4j() {
         inserter.shutdown();
     }
 }

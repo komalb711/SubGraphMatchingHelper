@@ -18,7 +18,7 @@ public class Utils {
         List<T> list = new ArrayList<T>();
 
         for (T t : list1) {
-            if(list2.contains(t)) {
+            if (list2.contains(t)) {
                 list.add(t);
             }
         }
@@ -39,7 +39,7 @@ public class Utils {
         Set<T> list = new HashSet<T>();
 
         for (T t : list1) {
-            if(list2.contains(t)) {
+            if (list2.contains(t)) {
                 list.add(t);
             }
         }

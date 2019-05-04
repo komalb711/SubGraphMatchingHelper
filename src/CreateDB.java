@@ -39,13 +39,13 @@ public class CreateDB {
     }
 
     public static void main(String[] args) {
-        try {
-            String filename = "Proteins/target";
-            CreateDB obj = CreateDB.getInstance();
-            obj.loadData(filename);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            String filename = "Proteins/target";
+//            CreateDB obj = CreateDB.getInstance();
+//            obj.loadData(filename);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         checkData();
     }
 
@@ -120,10 +120,14 @@ public class CreateDB {
     private static void checkData(){
         GraphDatabaseFactory dbFactory = new GraphDatabaseFactory();
         GraphDatabaseService db = dbFactory.newEmbeddedDatabase(new File(PROJECT_NAME));
-        Result res = db.execute("MATCH(G:backbones_140L:N) RETURN G.id, G.edge_count, G.profile");
+//        Result res = db.execute("MATCH(G:backbones_1RH4:C) RETURN G.id, G.edge_count, G.profile");
+        Result res = db.execute("MATCH(N1:backbones_1RH4{id:0})-[r] -(N2:backbones_1RH4{id:6}) WHERE N1.id <> N2.id RETURN SIGN(COUNT(r)) as RES");
         System.out.println("Sample query: Graph from target file backbones_140L and label N");
         while(res.hasNext()){
+//            res.next().get("RES");
             Map<String, Object> obj = res.next();
+            long result = (long) obj.get("RES");
+            System.out.println("Result::"+ result+":type:"+obj.get("RES").getClass().getName());
             String[] profile = (String[]) obj.get("G.profile");
             System.out.println(obj.get("G.id")+ " " + obj.get("G.edge_count") + " " + Arrays.toString(profile));
         }

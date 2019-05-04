@@ -21,7 +21,7 @@ SubgraphMatchingProcedure(Query Graph, Data Graph){
 }
 
 SubgraphSearchProcedure(Query Graph, Data Graph, Embedding){
-  if |M| = |VQ| {
+  if |M| = |Q.V| {
     Report M
   }
   else
@@ -49,7 +49,7 @@ SubgraphMatchingProcedure(Query Graph, Data Graph){
 }
 
 SubgraphSearchProcedure(Query Graph, Data Graph, Embedding){
-  if |M| = |VQ| {
+  if |M| = |Q.V| {
     Report M;
     CheckFullEmbedding()
   }

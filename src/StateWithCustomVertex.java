@@ -1,4 +1,16 @@
-import java.util.*;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
+/**
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
+ *
+ * StateWithCustomVertex.java
+ *
+ */
 
 public class StateWithCustomVertex {
 
@@ -8,7 +20,7 @@ public class StateWithCustomVertex {
     private Set<Integer> N1;
     private Set<LabeledVertex> N2;
 
-    public StateWithCustomVertex(){
+    public StateWithCustomVertex() {
         M = new TreeMap<>();
         T1 = new HashSet<>();
         T2 = new HashSet<>();
@@ -16,7 +28,7 @@ public class StateWithCustomVertex {
         N2 = new HashSet<>();
     }
 
-    public StateWithCustomVertex createDeepCopy(){
+    public StateWithCustomVertex createDeepCopy() {
         StateWithCustomVertex copy = new StateWithCustomVertex();
         copy.setM(new TreeMap<>(getM()));
         copy.setT1(new HashSet<>(getT1()));
@@ -50,11 +62,11 @@ public class StateWithCustomVertex {
         return N2;
     }
 
-    public void addMapping(int u, int v){
+    public void addMapping(int u, int v) {
         M.put(u, v);
     }
 
-    public void removeMapping(int u){
+    public void removeMapping(int u) {
         M.remove(u);
     }
 
@@ -74,26 +86,26 @@ public class StateWithCustomVertex {
         N2 = n2;
     }
 
-    public void printState(){
+    public void printState() {
         System.out.println("Mapping:");
-        for( int key: M.keySet() ){
-            System.out.print(key+" : " + M.get(key) + ", ");
+        for (int key : M.keySet()) {
+            System.out.print(key + " : " + M.get(key) + ", ");
         }
         System.out.println("T1:");
-        for( int node: T1 ){
+        for (int node : T1) {
             System.out.print(node + " ");
         }
         System.out.println("T2:");
-        for( LabeledVertex node: T2 ){
+        for (LabeledVertex node : T2) {
             System.out.print(node.getNodeId() + " ");
         }
 
         System.out.println("N1:");
-        for( int node: N1 ){
+        for (int node : N1) {
             System.out.print(node + " ");
         }
         System.out.println("N2:");
-        for( LabeledVertex node: N2 ){
+        for (LabeledVertex node : N2) {
             System.out.print(node.getNodeId() + " ");
         }
     }

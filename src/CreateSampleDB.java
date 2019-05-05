@@ -14,10 +14,12 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * CSCI 729 - Topics in Data Management - Graph Databases
- * Assignment 7
- * Problem 1
- * @Author - Komal Bhavsar (kvb9573@rit.edu)
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
+ *
+ * CreateSampleDB.java
+ *
  */
 
 
@@ -27,12 +29,12 @@ public class CreateSampleDB {
     private static BatchInserter inserter;
     private static CreateSampleDB instance = null;
     private HashMap<Integer, String> nodeLabelMapping;
-    private Map<Integer,Integer> nodeEdgeCounts;
+    private Map<Integer, Integer> nodeEdgeCounts;
     private List<Pair<Integer, Integer>> relationshipMapping;
-    private Map<Integer,List<String>> neighbors;
+    private Map<Integer, List<String>> neighbors;
 
-    public static CreateSampleDB getInstance(){
-        if (instance ==null){
+    public static CreateSampleDB getInstance() {
+        if (instance == null) {
             instance = new CreateSampleDB();
         }
         return instance;
@@ -49,7 +51,7 @@ public class CreateSampleDB {
         checkData();
     }
 
-    public void parseData(ArrayList<String> content){
+    public void parseData(ArrayList<String> content) {
         int nodeCount = Integer.parseInt(content.remove(0));
         nodeLabelMapping = new HashMap<>();
         nodeEdgeCounts = new HashMap<>();
@@ -69,7 +71,7 @@ public class CreateSampleDB {
             for (int i = 0; i < edgeCount; i++) {
                 String edge = content.remove(0);
                 String[] nodes = edge.split(" ");
-                if(!(relationshipMapping.contains(new Pair(Integer.parseInt(nodes[0]), Integer.parseInt(nodes[1])))
+                if (!(relationshipMapping.contains(new Pair(Integer.parseInt(nodes[0]), Integer.parseInt(nodes[1])))
                         || relationshipMapping.contains(new Pair(Integer.parseInt(nodes[1]), Integer.parseInt(nodes[0]))))) {
                     relationshipMapping.add(new Pair(Integer.parseInt(nodes[0]), Integer.parseInt(nodes[1])));
                 }
@@ -77,12 +79,10 @@ public class CreateSampleDB {
                 nodeLabel = nodeLabelMapping.get(Integer.parseInt(nodes[0]));
                 temp.add(nodeLabelMapping.get(Integer.parseInt(nodes[1])));
             }
-            nodeEdgeCounts.put(nodeId,edgeCount);
+            nodeEdgeCounts.put(nodeId, edgeCount);
             temp.add(nodeLabel);
-            neighbors.put(nodeId,temp);
+            neighbors.put(nodeId, temp);
         }
-
-
     }
 
     public void loadData(String filePath) throws IOException {
@@ -92,11 +92,11 @@ public class CreateSampleDB {
 
         connectToNeo4j();
         int gId = 0;
-        for ( String file : files) {
-            if(!file.contains(".txt")){
+        for (String file : files) {
+            if (!file.contains(".txt")) {
                 continue;
             }
-            ArrayList<String> content = readFile(filePath +"/"+file);
+            ArrayList<String> content = readFile(filePath + "/" + file);
             String label = file.split(".txt")[0];
             System.out.println(label);
             parseData(content);
@@ -104,7 +104,6 @@ public class CreateSampleDB {
                 HashMap<String, Object> map = new HashMap<>();
                 map.put("id", i);
                 map.put("edge_count", nodeEdgeCounts.get(i));
-//                map.put("profile", getStringOfNeighbors(neighbors.get(i)));
                 Collections.sort(neighbors.get(i));
                 System.out.println(neighbors.get(i));
                 map.put("profile", neighbors.get(i).stream().toArray(String[]::new));//neighbors.get(i).toArray(new String[neighbors.get(i).size()]));
@@ -118,41 +117,37 @@ public class CreateSampleDB {
             gId++;
         }
         long endTime = System.currentTimeMillis();
-        System.out.println("Load Time:" + (endTime-startTime) + " milliseconds");
+        System.out.println("Load Time:" + (endTime - startTime) + " milliseconds");
         closeConnectionToNeo4j();
     }
 
-    private static int getUniqueNodeId(int nodeId, int gId){
-        return gId*10000+nodeId;
+    private static int getUniqueNodeId(int nodeId, int gId) {
+        return gId * 10000 + nodeId;
     }
 
-    private static void checkData(){
+    private static void checkData() {
         GraphDatabaseFactory dbFactory = new GraphDatabaseFactory();
         GraphDatabaseService db = dbFactory.newEmbeddedDatabase(new File(PROJECT_NAME));
         Result res = db.execute("MATCH(G:L) RETURN G.id, G.edge_count");
-        while(res.hasNext()){
+        while (res.hasNext()) {
             Map<String, Object> obj = res.next();
-            System.out.println(obj.get("G.id")+ " " + obj.get("G.edge_count") );
+            System.out.println(obj.get("G.id") + " " + obj.get("G.edge_count"));
         }
         res.close();
         db.shutdown();
     }
 
-    private ArrayList<String> readFile(String filename){
-        try
-        {
-            ArrayList<String> list= new ArrayList<>();
+    private ArrayList<String> readFile(String filename) {
+        try {
+            ArrayList<String> list = new ArrayList<>();
             BufferedReader reader = new BufferedReader(new FileReader(filename));
             String line;
-            while ((line = reader.readLine()) != null)
-            {
+            while ((line = reader.readLine()) != null) {
                 list.add(line);
             }
             reader.close();
             return list;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.err.format("Exception occurred trying to read '%s'.", filename);
             e.printStackTrace();
             return null;
@@ -163,7 +158,7 @@ public class CreateSampleDB {
         inserter = BatchInserters.inserter(new File(PROJECT_NAME));
     }
 
-    private void closeConnectionToNeo4j(){
+    private void closeConnectionToNeo4j() {
         inserter.shutdown();
     }
 }

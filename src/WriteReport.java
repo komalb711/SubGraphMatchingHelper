@@ -4,6 +4,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
+ *
+ * WriteReport.java
+ *
+ */
+
 public class WriteReport {
 
     private String fileName;
@@ -25,7 +34,6 @@ public class WriteReport {
             e.printStackTrace();
         }
     }
-
 
     public void writeCandidates(Map<Integer, Set<Integer>> candidates, CandidateType checkType) {
         try {
@@ -85,52 +93,41 @@ public class WriteReport {
         }
     }
 
-    public void writePartialEmbeddingError(Map<Integer, Integer> mapping, int u, int v, boolean isJoinable, boolean shouldJoin, SubgraphMatchingType type){
-        try{
-            this.fileWriter.write("\nPartial Mapping Issue("+type.toString()+"): Mapping" + mapping.toString() + " u:" + u + ", v:" + v + " isJoinable:" + isJoinable + " shouldJoin:"+ shouldJoin);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-     public void writePartialEmbeddingWarning(Map<Integer, Integer> mapping, int u, int v, boolean isJoinable, boolean shouldJoin, SubgraphMatchingType type){
-            try{
-                this.fileWriter.write("\nPartial Mapping Warning("+type.toString()+"): Mapping" + mapping.toString() + " u:" + u + ", v:" + v + " isJoinable:" + isJoinable + " shouldJoin:"+ shouldJoin);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-    public void writeFullEmbeddingError(Map<Integer, Integer> mapping, SubgraphMatchingType type){
-        try{
-            this.fileWriter.write("\nFull Embedding did not match("+type.toString()+"): Mapping" + mapping.toString());
+    public void writePartialEmbeddingError(Map<Integer, Integer> mapping, int u, int v, boolean isJoinable, boolean shouldJoin, SubgraphMatchingType type) {
+        try {
+            this.fileWriter.write("\nPartial Mapping Issue(" + type.toString() + "): Mapping" + mapping.toString() + " u:" + u + ", v:" + v + " isJoinable:" + isJoinable + " shouldJoin:" + shouldJoin);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void writeNextVertexError(int expectedVertex, int actualVertex){
-        try{
+    public void writePartialEmbeddingWarning(Map<Integer, Integer> mapping, int u, int v, boolean isJoinable, boolean shouldJoin, SubgraphMatchingType type) {
+        try {
+            this.fileWriter.write("\nPartial Mapping Warning(" + type.toString() + "): Mapping" + mapping.toString() + " u:" + u + ", v:" + v + " isJoinable:" + isJoinable + " shouldJoin:" + shouldJoin);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void writeFullEmbeddingError(Map<Integer, Integer> mapping, SubgraphMatchingType type) {
+        try {
+            this.fileWriter.write("\nFull Embedding did not match(" + type.toString() + "): Mapping" + mapping.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void writeNextVertexError(int expectedVertex, int actualVertex) {
+        try {
             this.fileWriter.write("\nError in Next Vertex, should be" + expectedVertex + " but got " + actualVertex);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-//    public void writeStateError(Map<Integer, Integer> mapping, int u, int v, boolean updateState){
-//        try{
-//            this.fileWriter.write("\nCurrent Embedding:" + mapping.toString());
-//            this.fileWriter.write("\n Issue in nodes: u:"+u+", v:"+v);
-//            this.fileWriter.write(updateState? " for UpdateState" : " for Restore State");
-//            hasWarning = true;
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-
-    public void writeStateError(Map<Integer, Integer> expected, Map<Integer, Integer> mapping, int u, int v, boolean updateState){
-        try{
-            this.fileWriter.write("\nCurrent Embedding Issue " + (updateState? "for UpdateState" : "for Restore State") + ":( u:"+u+", v:"+v);
+    public void writeStateError(Map<Integer, Integer> expected, Map<Integer, Integer> mapping, int u, int v, boolean updateState) {
+        try {
+            this.fileWriter.write("\nCurrent Embedding Issue " + (updateState ? "for UpdateState" : "for Restore State") + ":( u:" + u + ", v:" + v);
             this.fileWriter.write("\nCurrent Embedding:" + mapping.toString());
             this.fileWriter.write("\nExpected Embedding:" + expected.toString() + "\n");
             hasWarning = true;
@@ -139,31 +136,30 @@ public class WriteReport {
         }
     }
 
-    public void writeMissingCandidates(Map<Integer, Set<Integer>> missingCandidateMap){
-        try{
+    public void writeMissingCandidates(Map<Integer, Set<Integer>> missingCandidateMap) {
+        try {
             this.fileWriter.write("\nCandidate Issues:(Missing Candidates from Ground Truth)");
-            for(int key: missingCandidateMap.keySet()){
-                this.fileWriter.write("\nQ" + key + " : " + missingCandidateMap.get(key) );
+            for (int key : missingCandidateMap.keySet()) {
+                this.fileWriter.write("\nQ" + key + " : " + missingCandidateMap.get(key));
             }
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void writeFullEmbeddings(Set<Map<Integer, Integer>> implementationResult, Set<Map<Integer, Integer>> groundTruth){
-        try{
+    public void writeFullEmbeddings(Set<Map<Integer, Integer>> implementationResult, Set<Map<Integer, Integer>> groundTruth) {
+        try {
             this.fileWriter.write("\nImplementation Result: Count(" + implementationResult.size() + ")");
-            for(Map<Integer, Integer> embedding : implementationResult){
+            for (Map<Integer, Integer> embedding : implementationResult) {
                 this.fileWriter.write("\n" + embedding.toString());
             }
             this.fileWriter.write("\nGroundTruth Result:Count(" + groundTruth.size() + ")");
-            for(Map<Integer, Integer> embedding : groundTruth) {
+            for (Map<Integer, Integer> embedding : groundTruth) {
                 this.fileWriter.write("\n" + embedding.toString());
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void closeReport() {

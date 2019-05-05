@@ -2,6 +2,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
+ *
+ * State.java
+ *
+ */
+
 public class State {
 
     private HashMap<Integer, Integer> M;
@@ -10,7 +19,7 @@ public class State {
     private List<Integer> N1;
     private List<Integer> N2;
 
-    public State(){
+    public State() {
         M = new HashMap<>();
         T1 = new ArrayList<>();
         T2 = new ArrayList<>();
@@ -18,7 +27,7 @@ public class State {
         N2 = new ArrayList<>();
     }
 
-    public State createDeepCopy(){
+    public State createDeepCopy() {
         State copy = new State();
         copy.setM(new HashMap<Integer, Integer>(getM()));
         copy.setT1(new ArrayList<Integer>(getT1()));
@@ -53,10 +62,11 @@ public class State {
         return N2;
     }
 
-    public void addMapping(int u, int v){
+    public void addMapping(int u, int v) {
         M.put(u, v);
     }
-    public void removeMapping(int u){
+
+    public void removeMapping(int u) {
         M.remove(u);
     }
 
@@ -76,26 +86,26 @@ public class State {
         N2 = n2;
     }
 
-    public void printState(){
+    public void printState() {
         System.out.println("Mapping:");
-        for( int key: M.keySet() ){
-            System.out.print(key+" : " + M.get(key) + ", ");
+        for (int key : M.keySet()) {
+            System.out.print(key + " : " + M.get(key) + ", ");
         }
         System.out.println("T1:");
-        for( int node: T1 ){
+        for (int node : T1) {
             System.out.print(node + " ");
         }
         System.out.println("T2:");
-        for( int node: T2 ){
+        for (int node : T2) {
             System.out.print(node + " ");
         }
 
         System.out.println("N1:");
-        for( int node: N1 ){
+        for (int node : N1) {
             System.out.print(node + " ");
         }
         System.out.println("N2:");
-        for( int node: N2 ){
+        for (int node : N2) {
             System.out.print(node + " ");
         }
     }

@@ -14,10 +14,12 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * CSCI 729 - Topics in Data Management - Graph Databases
- * Assignment 7
- * Problem 1
- * @Author - Komal Bhavsar (kvb9573@rit.edu)
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
+ *
+ * CreateDB.java
+ *
  */
 
 
@@ -31,8 +33,8 @@ public class CreateDB {
     private List<Pair<Integer, Integer>> relationshipMapping;
     private List<List<String>> neighbors;
 
-    public static CreateDB getInstance(){
-        if (instance ==null){
+    public static CreateDB getInstance() {
+        if (instance == null) {
             instance = new CreateDB();
         }
         return instance;
@@ -49,7 +51,7 @@ public class CreateDB {
         checkData();
     }
 
-    public void parseData(ArrayList<String> content){
+    public void parseData(ArrayList<String> content) {
         int nodeCount = Integer.parseInt(content.remove(0));
         nodeLabelMapping = new HashMap<>();
         nodeEdgeCounts = new ArrayList<>();
@@ -68,7 +70,7 @@ public class CreateDB {
             for (int i = 0; i < edgeCount; i++) {
                 String edge = content.remove(0);
                 String[] nodes = edge.split(" ");
-                if(!(relationshipMapping.contains(new Pair(Integer.parseInt(nodes[0]), Integer.parseInt(nodes[1])))
+                if (!(relationshipMapping.contains(new Pair(Integer.parseInt(nodes[0]), Integer.parseInt(nodes[1])))
                         || relationshipMapping.contains(new Pair(Integer.parseInt(nodes[1]), Integer.parseInt(nodes[0]))))) {
                     relationshipMapping.add(new Pair(Integer.parseInt(nodes[0]), Integer.parseInt(nodes[1])));
                 }
@@ -79,7 +81,6 @@ public class CreateDB {
             neighbors.add(temp);
         }
 
-
     }
 
     public void loadData(String filePath) throws IOException {
@@ -89,8 +90,8 @@ public class CreateDB {
 
         connectToNeo4j();
         int gId = 0;
-        for ( String file : files) {
-            ArrayList<String> content = readFile(filePath +"/"+file);
+        for (String file : files) {
+            ArrayList<String> content = readFile(filePath + "/" + file);
             String label = file.split(".grf")[0];
             parseData(content);
             for (int i = 0; i < nodeLabelMapping.size(); i++) {
@@ -109,47 +110,43 @@ public class CreateDB {
             gId++;
         }
         long endTime = System.currentTimeMillis();
-        System.out.println("Load Time:" + (endTime-startTime) + " milliseconds");
+        System.out.println("Load Time:" + (endTime - startTime) + " milliseconds");
         closeConnectionToNeo4j();
     }
 
-    private static int getUniqueNodeId(int nodeId, int gId){
-        return gId*100000+nodeId;
+    private static int getUniqueNodeId(int nodeId, int gId) {
+        return gId * 100000 + nodeId;
     }
 
-    private static void checkData(){
+    private static void checkData() {
         GraphDatabaseFactory dbFactory = new GraphDatabaseFactory();
         GraphDatabaseService db = dbFactory.newEmbeddedDatabase(new File(PROJECT_NAME));
 //        Result res = db.execute("MATCH(G:backbones_1RH4:C) RETURN G.id, G.edge_count, G.profile");
         Result res = db.execute("MATCH(N1:backbones_1RH4{id:0})-[r] -(N2:backbones_1RH4{id:6}) WHERE N1.id <> N2.id RETURN SIGN(COUNT(r)) as RES");
         System.out.println("Sample query: Graph from target file backbones_140L and label N");
-        while(res.hasNext()){
+        while (res.hasNext()) {
 //            res.next().get("RES");
             Map<String, Object> obj = res.next();
             long result = (long) obj.get("RES");
-            System.out.println("Result::"+ result+":type:"+obj.get("RES").getClass().getName());
+            System.out.println("Result::" + result + ":type:" + obj.get("RES").getClass().getName());
             String[] profile = (String[]) obj.get("G.profile");
-            System.out.println(obj.get("G.id")+ " " + obj.get("G.edge_count") + " " + Arrays.toString(profile));
+            System.out.println(obj.get("G.id") + " " + obj.get("G.edge_count") + " " + Arrays.toString(profile));
         }
         res.close();
         db.shutdown();
     }
 
-    private ArrayList<String> readFile(String filename){
-        try
-        {
-            ArrayList<String> list= new ArrayList<>();
+    private ArrayList<String> readFile(String filename) {
+        try {
+            ArrayList<String> list = new ArrayList<>();
             BufferedReader reader = new BufferedReader(new FileReader(filename));
             String line;
-            while ((line = reader.readLine()) != null)
-            {
+            while ((line = reader.readLine()) != null) {
                 list.add(line);
             }
             reader.close();
             return list;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.err.format("Exception occurred trying to read '%s'.", filename);
             e.printStackTrace();
             return null;
@@ -160,7 +157,7 @@ public class CreateDB {
         inserter = BatchInserters.inserter(new File(PROJECT_NAME));
     }
 
-    private void closeConnectionToNeo4j(){
+    private void closeConnectionToNeo4j() {
         inserter.shutdown();
     }
 }

@@ -3,6 +3,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
+ *
+ * Utils.java
+ *
+ */
+
 public class Utils {
 
     public static <T> List<T> union(List<T> list1, List<T> list2) {
@@ -18,7 +27,7 @@ public class Utils {
         List<T> list = new ArrayList<T>();
 
         for (T t : list1) {
-            if(list2.contains(t)) {
+            if (list2.contains(t)) {
                 list.add(t);
             }
         }
@@ -39,7 +48,7 @@ public class Utils {
         Set<T> list = new HashSet<T>();
 
         for (T t : list1) {
-            if(list2.contains(t)) {
+            if (list2.contains(t)) {
                 list.add(t);
             }
         }

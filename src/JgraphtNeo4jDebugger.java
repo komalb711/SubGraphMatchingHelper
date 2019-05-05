@@ -5,6 +5,15 @@ import org.neo4j.graphdb.*;
 
 import java.util.*;
 
+/**
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
+ *
+ * JgraphtNeo4jDebugger.java
+ *
+ */
+
 public class JgraphtNeo4jDebugger implements HookupInterface {
     private static String PROFILE = "profile";
     private static String EDGES_COUNT = "edge_count";
@@ -82,19 +91,19 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
                 this.report.candidateIssues(queryId, inputCandidateList);
             }
         }
-        if(this.groundTruth!=null && !groundTruth.isEmpty()){
+        if (this.groundTruth != null && !groundTruth.isEmpty()) {
             this.candidatesWithGroundTruth(candidates);
         }
     }
 
-    public void candidatesWithGroundTruth(Map<Integer, Set<Integer>> candidates){
+    public void candidatesWithGroundTruth(Map<Integer, Set<Integer>> candidates) {
 
         Map<Integer, Set<Integer>> missingCandidates = new HashMap<>();
 
-        for(Map<Integer, Integer> embedding: groundTruth){
-            for(int candidateKey: embedding.keySet()){
-                if(!candidates.get(candidateKey).contains(embedding.get(candidateKey))){
-                    if(!missingCandidates.containsKey(candidateKey)){
+        for (Map<Integer, Integer> embedding : groundTruth) {
+            for (int candidateKey : embedding.keySet()) {
+                if (!candidates.get(candidateKey).contains(embedding.get(candidateKey))) {
+                    if (!missingCandidates.containsKey(candidateKey)) {
                         missingCandidates.put(candidateKey, new HashSet<>());
                     }
                     missingCandidates.get(candidateKey).add(embedding.get(candidateKey));
@@ -102,7 +111,7 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
             }
         }
 
-        if(!missingCandidates.isEmpty()){
+        if (!missingCandidates.isEmpty()) {
             this.report.writeMissingCandidates(missingCandidates);
         }
     }
@@ -161,7 +170,7 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
     @Override
     public void checkNextVertex(List<Integer> order, int u) {
         int index = this.currentEmbedding.size();
-        if(u != order.get(index)){
+        if (u != order.get(index)) {
             report.writeNextVertexError(order.get(index), u);
         }
     }
@@ -177,7 +186,7 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
                     case NonInduced:
                         nonInduced = nonInducedGraphMatch(mapping, u, v);
                 }
-                if((induced && nonInduced) != isJoinable){
+                if ((induced && nonInduced) != isJoinable) {
                     report.writePartialEmbeddingError(mapping, u, v, isJoinable, (induced && nonInduced), this.type);
                 }
                 break;
@@ -211,12 +220,12 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
                     }
                 }
             }
-            if(!shouldJoin){
+            if (!shouldJoin) {
                 break;
             }
         }
         mapping.remove(u);
-        if(!shouldJoin){
+        if (!shouldJoin) {
             return false;
         }
 
@@ -227,7 +236,6 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
 
         mapping.put(u, v);
         boolean shouldJoin = true;
-        String failingQuery = "";
         for (Integer queryNodeId : mapping.keySet()) {
             LabeledVertex queryVertex = queryGraph.vertexSet().stream().filter(q -> q.getNodeId() == queryNodeId).findAny().get();
             List<LabeledVertex> neighbors = new ArrayList<>(Graphs.neighborListOf(queryGraph, queryVertex));
@@ -246,12 +254,12 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
                     }
                 }
             }
-            if(!shouldJoin){
+            if (!shouldJoin) {
                 break;
             }
         }
         mapping.remove(u);
-        if(!shouldJoin){
+        if (!shouldJoin) {
             return false;
         }
 
@@ -287,13 +295,13 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
 
         for (Map<Integer, Integer> gtMapping : groundTruth) {
             boolean equals = gtMapping.equals(mapping);
-            if(equals){
+            if (equals) {
                 match = true;
                 break;
             }
         }
 
-        if(!match){
+        if (!match) {
             //error
             report.writeFullEmbeddingError(mapping, this.type);
         }
@@ -341,7 +349,7 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
             report.writeStateError(this.currentEmbedding, mapping, u, v, false);
         }
         if (mismatchEmbedding) {
-            report.writeStateError(this.currentEmbedding,mapping, u, v, false);
+            report.writeStateError(this.currentEmbedding, mapping, u, v, false);
         }
     }
 
@@ -360,7 +368,7 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
         return true;
     }
 
-    public void writeResults(Set<Map<Integer, Integer>> result){
+    public void writeResults(Set<Map<Integer, Integer>> result) {
         this.report.writeFullEmbeddings(result, groundTruth);
     }
 

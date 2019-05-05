@@ -3,6 +3,15 @@ import org.jgrapht.graph.SimpleGraph;
 
 import java.util.Set;
 
+/**
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
+ *
+ * SingleLabeledVertex.java
+ *
+ */
+
 public class SingleLabeledVertex implements LabeledVertex {
     private int nodeId;
     private String label;

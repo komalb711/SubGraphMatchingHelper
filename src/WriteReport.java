@@ -4,6 +4,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
+ *
+ * WriteReport.java
+ *
+ */
+
 public class WriteReport {
 
     private String fileName;

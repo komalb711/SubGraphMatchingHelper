@@ -2,6 +2,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
+ *
+ * State.java
+ *
+ */
+
 public class State {
 
     private HashMap<Integer, Integer> M;

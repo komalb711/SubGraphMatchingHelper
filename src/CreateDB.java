@@ -14,11 +14,12 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * CSCI 729 - Topics in Data Management - Graph Databases
- * Assignment 7
- * Problem 1
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
  *
- * @Author - Komal Bhavsar (kvb9573@rit.edu)
+ * CreateDB.java
+ *
  */
 
 

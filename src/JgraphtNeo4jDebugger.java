@@ -5,6 +5,15 @@ import org.neo4j.graphdb.*;
 
 import java.util.*;
 
+/**
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
+ *
+ * JgraphtNeo4jDebugger.java
+ *
+ */
+
 public class JgraphtNeo4jDebugger implements HookupInterface {
     private static String PROFILE = "profile";
     private static String EDGES_COUNT = "edge_count";
@@ -227,7 +236,6 @@ public class JgraphtNeo4jDebugger implements HookupInterface {
 
         mapping.put(u, v);
         boolean shouldJoin = true;
-        String failingQuery = "";
         for (Integer queryNodeId : mapping.keySet()) {
             LabeledVertex queryVertex = queryGraph.vertexSet().stream().filter(q -> q.getNodeId() == queryNodeId).findAny().get();
             List<LabeledVertex> neighbors = new ArrayList<>(Graphs.neighborListOf(queryGraph, queryVertex));

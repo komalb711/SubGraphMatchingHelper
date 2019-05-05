@@ -3,6 +3,15 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+/**
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
+ *
+ * StateWithCustomVertex.java
+ *
+ */
+
 public class StateWithCustomVertex {
 
     private Map<Integer, Integer> M;

@@ -67,6 +67,6 @@ SubgraphSearchProcedure(Query Graph, Data Graph, Embedding){
     }
   }
 }
-
  ```
+
 

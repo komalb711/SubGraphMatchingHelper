@@ -3,6 +3,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * @Author: Komal Bhavsar (kvb9573@rit.edu)
+ * Rochester Institute of Technology
+ * CS MS Capstone Project - Spring 2019
+ *
+ * Utils.java
+ *
+ */
+
 public class Utils {
 
     public static <T> List<T> union(List<T> list1, List<T> list2) {
